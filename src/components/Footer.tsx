@@ -15,7 +15,8 @@ export function Footer() {
             A digital showcase of the Home Science Food Festival project created by Class 7, Section Tulip of Southpoint School and College.
           </p>
           <p className="text-sm opacity-60">
-            A student-created educational showcase.
+            A student-created educational showcase.<br/>
+            Made in collaboration with the SPSC Programming Club.
           </p>
         </div>
 
