@@ -1,0 +1,6 @@
+{
+  "name": "Taste of Home Festival",
+  "description": "A creative Home Science food festival exploring food, nutrition, science, creativity and teamwork.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

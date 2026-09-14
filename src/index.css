@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-baby-blue: #89CFF0;
+  --color-brand-blue: #B8DDF2;
+  --color-brand-cream: #FFF9EF;
+  --color-brand-soft-cream: #FFF4DC;
+  --color-brand-text: #303038;
+  --color-brand-soft-baby-blue: #D4F1F9;
+  --color-brand-soft-blue: #D9EEF8;
+  --color-brand-accent-peach: #FFD6B8;
+  --color-brand-soft-mint: #D8F0E3;
+  --color-brand-white: #FFFFFF;
+
+  --font-display: "Slackey", sans-serif;
+  --font-body: "Nunito", sans-serif;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+}
+
+@layer base {
+  body {
+    @apply font-body text-brand-text bg-brand-cream;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-normal;
+  }
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
