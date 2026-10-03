@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Lenis from 'lenis';
+import { initLenis, destroyLenis } from './utils/lenis';
 import { LoadingScreen } from './components/LoadingScreen';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
@@ -14,25 +14,13 @@ export default function App() {
   useEffect(() => {
     if (!loadingComplete) return;
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+    initLenis();
 
     return () => {
-      lenis.destroy();
+      destroyLenis();
     };
   }, [loadingComplete]);
+
 
   return (
     <BrowserRouter>

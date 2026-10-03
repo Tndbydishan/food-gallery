@@ -1,15 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { SectionHeading } from './ui/SectionHeading';
 import anime from 'animejs';
-import { MapPin, Utensils, Info } from 'lucide-react';
-import { foods, FoodItem } from '../data/foods';
+import { Utensils, Info, MoveHorizontal } from 'lucide-react';
+import { foods } from '../data/foods';
 import { useNavigate } from 'react-router-dom';
+import { scrollToTop } from '../utils/lenis';
 
 export function StallMap() {
   const sectionRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -17,14 +21,14 @@ export function StallMap() {
             targets: '.stall-pin',
             scale: [0, 1],
             opacity: [0, 1],
-            delay: anime.stagger(100),
+            delay: anime.stagger(80),
             easing: 'easeOutElastic(1, .8)',
-            duration: 1000
+            duration: 900
           });
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     if (sectionRef.current) {
@@ -49,70 +53,84 @@ export function StallMap() {
     
     { id: "pudding", food: getFood("pudding"), x: 50, y: 75, color: "bg-brand-accent-peach" },
     { id: "custard", food: getFood("custard"), x: 80, y: 75, color: "bg-brand-accent-peach" },
-  ].filter(s => s.food); // Only include if food is found
+  ].filter(s => s.food);
+
+  const handleStallClick = (foodId?: string) => {
+    if (!foodId) return;
+    scrollToTop(true);
+    navigate(`/food/${foodId}`);
+  };
 
   return (
     <section id="map" ref={sectionRef} className="py-16 md:py-24 bg-white relative">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        
         <SectionHeading 
           badge="Find Your Way"
           title="Festival Room Map"
-          description="Explore our interactive room layout. Click on any food station to view its detailed nutrition, ingredients, and home science insights."
-          className="mb-16"
+          description="Explore our interactive classroom layout. Tap or click on any food station to inspect ingredients, preparation facts, and Home Science principles."
+          className="mb-8"
         />
 
-        <div className="overflow-x-auto pb-8 -mx-4 px-4 lg:mx-0 lg:px-0">
-          <div className="relative min-w-[700px] max-w-5xl mx-auto h-[450px] md:h-auto md:aspect-[21/9] bg-[#f8f9fa] rounded-[40px] border-4 border-brand-text overflow-hidden shadow-sm">
+        {/* Mobile Swipe Hint */}
+        <div className="flex items-center justify-center gap-2 text-xs text-brand-text/60 font-semibold mb-4 lg:hidden">
+          <MoveHorizontal size={16} className="text-brand-baby-blue animate-pulse" />
+          <span>Swipe horizontally to explore all stalls</span>
+        </div>
+
+        <div className="overflow-x-auto pb-6 -mx-4 px-4 lg:mx-0 lg:px-0">
+          <div className="relative min-w-[720px] max-w-5xl mx-auto h-[440px] md:h-auto md:aspect-[21/9] bg-[#f9fafb] rounded-[36px] md:rounded-[44px] border-4 border-brand-text/90 overflow-hidden shadow-sm">
+            
             {/* Room Floor Pattern */}
-            <div className="absolute inset-0 opacity-10" style={{
+            <div className="absolute inset-0 opacity-[0.07]" style={{
               backgroundImage: 'linear-gradient(90deg, #303038 1px, transparent 1px), linear-gradient(#303038 1px, transparent 1px)',
-              backgroundSize: '40px 40px'
+              backgroundSize: '36px 36px'
             }}></div>
             
-            {/* Entrance Door */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-4 border-t-4 border-l-4 border-r-4 border-brand-text bg-white rounded-t-lg z-10 flex items-center justify-center">
-              <span className="text-brand-text font-bold text-sm tracking-widest uppercase">Entrance</span>
+            {/* Entrance Door Label */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-44 h-5 border-t-4 border-l-4 border-r-4 border-brand-text/90 bg-white rounded-t-lg z-10 flex items-center justify-center">
+              <span className="text-brand-text font-bold text-xs tracking-widest uppercase">Room Entrance</span>
             </div>
 
-            {/* Tables / Zones */}
-            <div className="absolute top-10 bottom-20 left-10 w-24 md:w-32 rounded-3xl border-2 border-brand-baby-blue/30 bg-brand-baby-blue/10"></div>
-            <div className="absolute top-10 bottom-40 left-1/2 -translate-x-1/2 w-24 md:w-32 rounded-3xl border-2 border-brand-soft-mint/30 bg-brand-soft-mint/10"></div>
-            <div className="absolute top-10 bottom-20 right-10 w-24 md:w-32 rounded-3xl border-2 border-brand-accent-peach/30 bg-brand-accent-peach/10"></div>
+            {/* Table Zones */}
+            <div className="absolute top-8 bottom-16 left-8 w-24 md:w-32 rounded-3xl border-2 border-brand-baby-blue/40 bg-brand-baby-blue/10"></div>
+            <div className="absolute top-8 bottom-36 left-1/2 -translate-x-1/2 w-24 md:w-32 rounded-3xl border-2 border-brand-soft-mint/40 bg-brand-soft-mint/10"></div>
+            <div className="absolute top-8 bottom-16 right-8 w-24 md:w-32 rounded-3xl border-2 border-brand-accent-peach/40 bg-brand-accent-peach/10"></div>
 
-            {/* Path */}
+            {/* Walking Path */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-              <path d="M 50% 90% L 50% 65% L 35% 65% L 35% 35% L 65% 35% L 65% 65%" fill="none" stroke="currentColor" strokeWidth="4" strokeDasharray="8 8" className="text-brand-text/15" />
+              <path d="M 50% 90% L 50% 65% L 35% 65% L 35% 35% L 65% 35% L 65% 65%" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6 6" className="text-brand-text/15" />
             </svg>
 
-            {/* Stalls */}
+            {/* Stalls Pins */}
             {stalls.map(stall => (
               <div 
                 key={stall.id} 
-                className="stall-pin absolute opacity-0 flex flex-col items-center group cursor-pointer"
+                className="stall-pin absolute flex flex-col items-center group cursor-pointer transition-transform"
                 style={{ left: `${stall.x}%`, top: `${stall.y}%`, transform: 'translate(-50%, -50%)' }}
-                onClick={() => navigate(`/food/${stall.food?.id}`)}
+                onClick={() => handleStallClick(stall.food?.id)}
               >
                 <div className="relative">
-                  <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center ${stall.color} shadow-lg relative z-10 transition-transform group-hover:scale-110 border-2 border-white`}>
+                  <div className={`w-13 h-13 md:w-15 md:h-15 rounded-full flex items-center justify-center ${stall.color} shadow-md relative z-10 transition-transform duration-300 group-hover:scale-110 border-2 border-white`}>
                     {stall.food?.image ? (
-                      <img src={stall.food.image} alt={stall.food.name} className="w-full h-full object-cover rounded-full opacity-80 mix-blend-multiply" />
+                      <img src={stall.food.image} alt={stall.food.name} className="w-full h-full object-cover rounded-full opacity-85 mix-blend-multiply" />
                     ) : (
-                      <Utensils className="text-brand-text" size={24} />
+                      <Utensils className="text-brand-text" size={20} />
                     )}
-                    <div className="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-sm border border-brand-text/10 scale-0 group-hover:scale-100 transition-transform">
-                      <Info size={14} className="text-brand-text" />
+                    <div className="absolute -top-1.5 -right-1.5 bg-white rounded-full p-1 shadow-xs border border-brand-text/10 scale-0 group-hover:scale-100 transition-transform">
+                      <Info size={12} className="text-brand-text" />
                     </div>
                   </div>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-2 bg-brand-text/20 blur-sm rounded-full -z-10"></div>
+                  <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-7 h-2 bg-brand-text/15 blur-xs rounded-full -z-10"></div>
                 </div>
                 
-                {/* Label */}
-                <div className="mt-3 bg-white px-4 py-2 rounded-xl shadow-md border border-brand-text/10 text-center transition-all group-hover:-translate-y-1">
-                  <div className="text-sm font-bold text-brand-text whitespace-nowrap">
+                {/* Stall Label */}
+                <div className="mt-2.5 bg-white/95 backdrop-blur-xs px-3.5 py-1.5 rounded-xl shadow-xs border border-brand-text/10 text-center transition-all group-hover:-translate-y-1 group-hover:shadow-md">
+                  <div className="text-xs sm:text-sm font-bold text-brand-text whitespace-nowrap">
                     {stall.food?.name}
                   </div>
-                  <div className="text-[10px] text-brand-text/60 uppercase tracking-wider mt-0.5">
-                    Click for details
+                  <div className="text-[9px] text-brand-text/55 font-bold uppercase tracking-wider mt-0.5">
+                    View Recipe
                   </div>
                 </div>
               </div>

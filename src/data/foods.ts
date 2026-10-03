@@ -37,6 +37,7 @@ export interface PreparationInfo {
 
 export interface FoodItem {
   id: string;
+  slug: string;
   name: string;
   category: 'main' | 'savory' | 'salad' | 'beverage' | 'dessert';
   image: string;
@@ -58,6 +59,7 @@ export interface FoodItem {
 export const foods: FoodItem[] = [
   {
     id: "fried-rice",
+    slug: "fried-rice",
     name: "Fried Rice",
     category: "main",
     image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&q=80&w=800",
@@ -95,6 +97,7 @@ export const foods: FoodItem[] = [
   },
   {
     id: "fried-chicken",
+    slug: "fried-chicken",
     name: "Fried Chicken",
     category: "main",
     image: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&q=80&w=800",
@@ -132,6 +135,7 @@ export const foods: FoodItem[] = [
   },
   {
     id: "vegetable-salad",
+    slug: "vegetable-salad",
     name: "Vegetable Salad",
     category: "salad",
     image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
@@ -169,6 +173,7 @@ export const foods: FoodItem[] = [
   },
   {
     id: "fruit-salad",
+    slug: "fruit-salad",
     name: "Fruit Salad",
     category: "salad",
     image: "https://images.unsplash.com/photo-1564093497595-593b96d80180?auto=format&fit=crop&q=80&w=800",
@@ -206,6 +211,7 @@ export const foods: FoodItem[] = [
   },
   {
     id: "kabab",
+    slug: "kabab",
     name: "Chicken Kabab",
     category: "savory",
     image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
@@ -243,6 +249,7 @@ export const foods: FoodItem[] = [
   },
   {
     id: "soft-drinks",
+    slug: "soft-drinks",
     name: "Soft Drinks",
     category: "beverage",
     image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80&w=800",
@@ -312,6 +319,7 @@ export const foods: FoodItem[] = [
   },
   {
     id: "tang",
+    slug: "tang",
     name: "Tang",
     category: "beverage",
     image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&q=80&w=800",
@@ -349,6 +357,7 @@ export const foods: FoodItem[] = [
   },
   {
     id: "pudding",
+    slug: "pudding",
     name: "Caramel Pudding",
     category: "dessert",
     image: "https://images.unsplash.com/photo-1590080826978-8316dfc0d663?auto=format&fit=crop&q=80&w=800",
@@ -386,6 +395,7 @@ export const foods: FoodItem[] = [
   },
   {
     id: "custard",
+    slug: "custard",
     name: "Fruit Custard",
     category: "dessert",
     image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800",
@@ -422,3 +432,4 @@ export const foods: FoodItem[] = [
     homeScienceInsight: "The thickening agent is cornstarch (in the custard powder), which undergoes gelatinization when heated with milk, trapping liquid in a starch network."
   }
 ];
+
