@@ -1,72 +1,46 @@
-import React, { useEffect, useRef } from 'react';
-import anime from 'animejs';
+import React from 'react';
 import { SectionHeading } from './ui/SectionHeading';
+import { Code, Sparkles, Heart } from 'lucide-react';
+import { Halftone, StarBurst } from './graphic';
 
 export function Statistics() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const animatedRef = useRef(false);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !animatedRef.current) {
-          animatedRef.current = true;
-          
-          anime({
-            targets: '.stat-number',
-            innerHTML: function(el: HTMLElement) {
-              return [0, el.getAttribute('data-value') || 0];
-            },
-            round: 1,
-            easing: 'easeOutQuad',
-            duration: 1500,
-            delay: anime.stagger(150)
-          });
-          
-          anime({
-            targets: '.stat-card',
-            scale: [0.92, 1],
-            opacity: [0, 1],
-            easing: 'easeOutQuad',
-            duration: 700,
-            delay: anime.stagger(100)
-          });
-          
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const stats = [
-    { label: "Festival Dishes", value: 9, suffix: "", color: "bg-brand-baby-blue/80" },
-    { label: "Food Categories", value: 5, suffix: "", color: "bg-brand-soft-mint" },
-    { label: "Home Science", value: 100, suffix: "%", color: "bg-brand-soft-blue" },
-    { label: "Section Tulip Team", value: 16, suffix: " students", color: "bg-brand-accent-peach" }
+    { label: "Exhibited Dishes", kanji: "展示品数", value: "09", desc: "Handcrafted recipes", color: "bg-primary text-black", shadow: "shadow-[5px_5px_0px_#111111]" },
+    { label: "Food Categories", kanji: "料理区分", value: "05", desc: "From mains to desserts", color: "bg-green text-white", shadow: "shadow-[5px_5px_0px_#111111]" },
+    { label: "Home Science", kanji: "家庭科実践", value: "100%", desc: "Curriculum integrated", color: "bg-red text-white", shadow: "shadow-[5px_5px_0px_#111111]" },
+    { label: "Student Creators", kanji: "参加生徒", value: "16", desc: "Section Tulip cohort", color: "bg-blue text-white", shadow: "shadow-[5px_5px_0px_#111111]" }
   ];
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-20 bg-brand-cream border-y border-brand-text/5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+    <section className="py-14 md:py-20 bg-yellow border-b-4 border-black relative overflow-hidden">
+      <Halftone color="black" opacity={0.06} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, i) => (
-            <div key={i} className="stat-card flex flex-col items-center justify-center text-center p-5 sm:p-7 bg-white/90 rounded-[28px] md:rounded-[36px] shadow-xs border border-brand-text/5 hover:border-brand-baby-blue/40 transition-all hover:-translate-y-1">
-              <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl ${stat.color} mb-3.5 flex items-center justify-center shadow-xs`}>
-                <span className="text-xl sm:text-2xl font-display text-brand-text">
-                  <span className="stat-number" data-value={stat.value}>{stat.value}</span>{stat.suffix}
+            <div 
+              key={i} 
+              className={`${stat.color} border-3.5 border-black rounded-3xl p-5 sm:p-6 ${stat.shadow} hover:-translate-y-1 transition-all flex flex-col justify-between`}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span className="w-9 h-9 rounded-xl bg-black text-yellow border-2 border-white flex items-center justify-center font-display font-black text-xs shadow-[2px_2px_0px_#111111]">
+                  0{i + 1}
+                </span>
+                <span className="text-[10px] font-mono uppercase font-black tracking-widest opacity-80">
+                  {stat.kanji}
                 </span>
               </div>
-              <span className="font-bold text-xs sm:text-sm text-brand-text/80">{stat.label}</span>
+              <div>
+                <div className="font-display font-black text-4xl sm:text-5xl tracking-tighter mb-1">
+                  {stat.value}
+                </div>
+                <div className="font-display font-black text-sm sm:text-base leading-snug">
+                  {stat.label}
+                </div>
+                <div className="text-xs font-mono font-medium opacity-85 mt-0.5">
+                  {stat.desc}
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -77,34 +51,64 @@ export function Statistics() {
 
 export function BuildWithPassion() {
   return (
-    <section id="passion" className="py-16 md:py-24 bg-brand-soft-cream/60 relative overflow-hidden">
+    <section id="passion" className="py-20 md:py-28 bg-offwhite border-b-4 border-black relative overflow-hidden">
       
-      {/* Decorative floating elements */}
-      <div className="absolute top-10 left-10 text-3xl opacity-20 rotate-12 pointer-events-none">🍎</div>
-      <div className="absolute bottom-20 right-10 text-4xl opacity-20 -rotate-12 pointer-events-none">🧁</div>
-      <div className="absolute top-1/2 left-1/4 text-2xl opacity-20 rotate-45 pointer-events-none">✨</div>
-      <div className="absolute bottom-1/4 right-1/4 text-3xl opacity-20 -rotate-12 pointer-events-none">🧪</div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <Halftone color="black" opacity={0.04} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center relative z-10">
+        
         <SectionHeading 
-          badge="A Student Learning Experience"
-          title="Built With Passion & Curiosity"
-          className="mb-6 md:mb-8"
+          number="06"
+          kanjiBadge="情熱協調"
+          badge="Curiosity & Learning"
+          badgeVariant="yellow"
+          title="Built With Passion, Science & Curiosity (探求と協力)"
+          className="mb-6"
         />
         
-        <p className="text-base sm:text-lg md:text-xl text-brand-text/80 max-w-2xl mx-auto font-medium leading-relaxed mb-10">
-          Every recipe, display card, and nutritional breakdown was prepared with curiosity, teamwork, and enthusiasm by Class 7 Section Tulip.
+        <p className="text-base sm:text-lg md:text-xl text-black font-medium leading-relaxed mb-10 max-w-2xl mx-auto [text-wrap:pretty]">
+          Every recipe ratio, display label, and nutritional estimate was crafted with scientific inquiry and enthusiastic teamwork by Class 7 Section Tulip.
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-base sm:text-xl md:text-2xl font-display text-brand-text">
-          <span className="bg-brand-baby-blue/80 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full rotate-1 shadow-xs">Food</span>
-          <span>+</span>
-          <span className="bg-brand-soft-mint px-5 sm:px-6 py-2.5 sm:py-3 rounded-full -rotate-1 shadow-xs">Science</span>
-          <span>+</span>
-          <span className="bg-brand-soft-blue px-5 sm:px-6 py-2.5 sm:py-3 rounded-full rotate-2 shadow-xs">Creativity</span>
-          <span>+</span>
-          <span className="bg-brand-accent-peach px-5 sm:px-6 py-2.5 sm:py-3 rounded-full -rotate-1 shadow-xs">Teamwork</span>
+        {/* Neo-Brutalist Japanese Pop Equation Blocks */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-display font-black text-base sm:text-xl md:text-2xl text-black mb-14">
+          <span className="bg-primary border-3 border-black px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-[5px_5px_0px_#111111] rotate-1">
+            Food · 食
+          </span>
+          <span className="font-mono text-2xl text-black">+</span>
+          <span className="bg-green text-white border-3 border-black px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-[5px_5px_0px_#111111] -rotate-1">
+            Science · 科
+          </span>
+          <span className="font-mono text-2xl text-black">+</span>
+          <span className="bg-red text-white border-3 border-black px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-[5px_5px_0px_#111111] rotate-2">
+            Creativity · 創
+          </span>
+          <span className="font-mono text-2xl text-black">+</span>
+          <span className="bg-blue text-white border-3 border-black px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-[5px_5px_0px_#111111] -rotate-2">
+            Teamwork · 協
+          </span>
         </div>
+
+        {/* Distinct SPSC Programming Club Collaboration Card */}
+        <div className="bg-white border-4 border-black rounded-3xl p-6 sm:p-8 shadow-[8px_8px_0px_#111111] max-w-xl mx-auto text-left flex items-start gap-4 relative overflow-hidden">
+          <div className="w-14 h-14 rounded-2xl bg-primary border-3 border-black flex items-center justify-center shadow-[4px_4px_0px_#111111] shrink-0">
+            <Code size={26} className="text-black" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="bg-black text-yellow px-2 py-0.5 rounded text-[10px] font-mono font-black uppercase">
+                Digital Engineering · 情報開発
+              </span>
+            </div>
+            <h4 className="font-display font-black text-lg sm:text-xl text-black mb-1">
+              Made in Collaboration with SPSC Programming Club
+            </h4>
+            <p className="text-xs sm:text-sm text-black font-medium leading-relaxed">
+              Designed and engineered by the SPSC Programming Club to celebrate our Section Tulip peers' academic and culinary achievements.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
   );

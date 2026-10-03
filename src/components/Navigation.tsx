@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from './ui/Button';
+import { JapaneseSeal, RetroStamp } from './graphic';
 import { scrollToElement, scrollToTop } from '../utils/lenis';
 
 const NAV_LINKS = [
-  { label: 'Home', href: '/#home', target: '#home' },
-  { label: 'Menu', href: '/#menu', target: '#menu' },
-  { label: 'Map', href: '/#map', target: '#map' },
-  { label: 'Highlights', href: '/#highlights', target: '#highlights' },
-  { label: 'About', href: '/#about', target: '#about' },
-  { label: 'Team', href: '/#team', target: '#team' },
+  { num: '01', label: 'Home', kanji: '起点', href: '/#home', target: '#home' },
+  { num: '02', label: 'Menu', kanji: '料理', href: '/#menu', target: '#menu' },
+  { num: '03', label: 'Map', kanji: '案内', href: '/#map', target: '#map' },
+  { num: '04', label: 'Pillars', kanji: '科学', href: '/#highlights', target: '#highlights' },
+  { num: '05', label: 'About', kanji: '概要', href: '/#about', target: '#about' },
+  { num: '06', label: 'Team', kanji: '生徒', href: '/#team', target: '#team' },
 ];
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -52,126 +54,202 @@ export function Navigation() {
   return (
     <>
       <header 
-        className={`fixed top-0 w-full z-[100] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 w-full z-[100] transition-all duration-200 border-b-3 border-black ${
           scrolled 
-            ? 'bg-brand-cream/90 backdrop-blur-md shadow-[0_4px_20px_rgba(75,130,160,0.06)] border-b border-brand-baby-blue/20 py-2.5 sm:py-3' 
-            : 'bg-transparent py-3 md:py-5'
+            ? 'bg-primary/95 backdrop-blur-md shadow-[0_4px_0px_#111111] py-2.5 sm:py-3' 
+            : 'bg-offwhite py-3 sm:py-4 shadow-[0_2px_0px_#111111]'
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex items-center justify-between">
           
-          {/* School Brand Mark */}
+          {/* Zone 1: Japanese Retro Brand Lockup */}
           <Link 
             to="/#home" 
-            className="font-display text-xl sm:text-2xl md:text-3xl tracking-tight z-[100] relative text-brand-text flex flex-col leading-none group" 
+            className="flex items-center gap-2.5 group select-none cursor-pointer" 
             onClick={() => handleNavClick('#home')}
           >
-            <span className="group-hover:text-brand-text/90 transition-colors">SPSC</span>
-            <span className="text-brand-baby-blue text-sm sm:text-base md:text-lg group-hover:text-brand-blue transition-colors">
-              Class 7 Tulip
-            </span>
+            <div className="bg-black text-yellow border-2.5 border-black px-2.5 py-1 rounded-lg shadow-[3px_3px_0px_#FFD21F] transition-transform group-hover:scale-105 font-display font-black text-base tracking-tight flex items-center gap-1.5">
+              <span>SPSC</span>
+              <span className="text-[10px] font-mono text-red font-bold">南尖</span>
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-display font-black text-sm sm:text-base text-black tracking-tight flex items-center gap-1">
+                Class 7 Tulip
+                <span className="bg-red text-white text-[9px] px-1 py-0.2 rounded font-mono font-bold">第7学年</span>
+              </span>
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-black/70 mt-0.5">
+                Food Festival · 食育展示
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7">
-            <ul className="flex items-center gap-6 font-bold text-sm text-brand-text/80">
+          {/* Zone 2: Numbered Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-2">
+            <ul className="flex items-center gap-1 font-display font-black text-xs uppercase tracking-wider text-black">
               {NAV_LINKS.map(link => (
                 <li key={link.href}>
                   {isHomePage ? (
                     <button 
                       onClick={() => handleNavClick(link.target)}
-                      className="hover:text-brand-baby-blue transition-colors cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg hover:bg-black hover:text-yellow transition-all duration-150 cursor-pointer flex items-center gap-1.5 border border-transparent hover:border-black"
                     >
-                      {link.label}
+                      <span className="font-mono text-[10px] opacity-60">{link.num}</span>
+                      <span>{link.label}</span>
                     </button>
                   ) : (
                     <Link 
                       to={link.href} 
-                      className="hover:text-brand-baby-blue transition-colors"
+                      className="px-3 py-1.5 rounded-lg hover:bg-black hover:text-yellow transition-all duration-150 flex items-center gap-1.5 border border-transparent hover:border-black text-black"
                     >
-                      {link.label}
+                      <span className="font-mono text-[10px] opacity-60">{link.num}</span>
+                      <span>{link.label}</span>
                     </Link>
                   )}
                 </li>
               ))}
             </ul>
-            
-            {isHomePage ? (
-              <button onClick={() => handleNavClick('#menu')} className="cursor-pointer">
-                <Button size="sm" className="shadow-xs hover:shadow-md transition-all">
-                  Explore Menu
-                </Button>
-              </button>
-            ) : (
-              <Link to="/#menu">
-                <Button size="sm" className="shadow-xs hover:shadow-md transition-all">
-                  Explore Menu
-                </Button>
-              </Link>
-            )}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="lg:hidden z-[100] relative flex items-center gap-2 bg-white/95 px-3.5 py-1.5 rounded-full shadow-xs border border-brand-text/10 text-brand-text transition-all hover:bg-brand-soft-baby-blue/50"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className="font-bold text-xs uppercase tracking-wider">{isOpen ? 'Close' : 'Menu'}</span>
-            {isOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
+          {/* Zone 3: Primary Tactile Action + Mobile Toggle */}
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:block">
+              <Button 
+                size="sm" 
+                variant="primary"
+                onClick={() => {
+                  if (isHomePage) {
+                    handleNavClick('#menu');
+                  } else {
+                    navigate('/#menu');
+                  }
+                }}
+              >
+                <span>Festival Menu</span>
+                <span className="ml-1 text-[10px] opacity-75 font-mono">料理 →</span>
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button with Retro Offset Shadow */}
+            <button 
+              className="lg:hidden flex items-center justify-center w-11 h-11 bg-primary border-3 border-black rounded-xl shadow-[3px_3px_0px_#111111] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle navigation menu"
+            >
+              {isOpen ? <X size={22} className="text-black" /> : <Menu size={22} className="text-black" />}
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Mobile Sliding Drawer */}
+      {/* Mobile Japanese Retro Poster Menu Drawer */}
       <div 
-        className={`mobile-menu fixed inset-0 bg-brand-cream/98 backdrop-blur-xl z-[90] flex flex-col items-center justify-center transition-all duration-400 ease-in-out ${
+        className={`fixed inset-0 bg-black/80 z-[120] lg:hidden backdrop-blur-xs transition-opacity duration-200 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
+        onClick={() => setIsOpen(false)}
       >
-        <div className="text-center mb-6">
-          <span className="text-xs uppercase tracking-widest font-bold text-brand-text/50">Southpoint School and College</span>
-          <h3 className="font-display text-2xl text-brand-text">Class 7 — Section Tulip</h3>
-          <p className="text-xs text-brand-baby-blue font-bold tracking-wider uppercase mt-1">Home Science Showcase</p>
-        </div>
-
-        <nav className="flex flex-col items-center gap-5 w-full max-w-xs px-6">
-          {NAV_LINKS.map((link) => (
-            <div key={link.href} className="w-full text-center">
-              {isHomePage ? (
-                <button 
-                  onClick={() => handleNavClick(link.target)}
-                  className="w-full text-2xl font-display text-brand-text hover:text-brand-baby-blue transition-colors py-1 cursor-pointer"
-                >
-                  {link.label}
-                </button>
-              ) : (
-                <Link 
-                  to={link.href} 
-                  onClick={() => setIsOpen(false)}
-                  className="w-full text-2xl font-display text-brand-text hover:text-brand-baby-blue transition-colors py-1 block"
-                >
-                  {link.label}
-                </Link>
-              )}
-            </div>
-          ))}
-
-          <div className="w-full pt-4 border-t border-brand-text/10 mt-2">
-            {isHomePage ? (
+        <div 
+          className={`absolute top-0 right-0 w-[90%] max-w-md h-full bg-deep-black text-white border-l-4 border-black p-6 flex flex-col justify-between shadow-[-10px_0px_0px_#FFD21F] transition-transform duration-300 ease-out overflow-y-auto ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Drawer Poster Header */}
+          <div>
+            <div className="flex items-center justify-between pb-6 border-b-3 border-white/20 mb-6">
+              <div className="flex items-center gap-2">
+                <span className="bg-primary text-black border-2 border-white px-2 py-0.5 rounded font-display font-black text-xs shadow-[2px_2px_0px_#FFFFFF]">
+                  SPSC
+                </span>
+                <span className="font-display font-black text-base text-yellow">
+                  Section Tulip · 第7学年
+                </span>
+              </div>
               <button 
-                onClick={() => handleNavClick('#menu')} 
-                className="w-full cursor-pointer"
+                onClick={() => setIsOpen(false)}
+                className="w-10 h-10 rounded-xl border-2 border-black bg-primary text-black flex items-center justify-center shadow-[3px_3px_0px_#FFFFFF] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+                aria-label="Close menu"
               >
-                <Button size="lg" className="w-full">Explore Menu</Button>
+                <X size={20} />
               </button>
-            ) : (
-              <Link to="/#menu" onClick={() => setIsOpen(false)} className="w-full block">
-                <Button size="lg" className="w-full">Explore Menu</Button>
-              </Link>
-            )}
+            </div>
+
+            {/* Retro Japanese Navigation Poster List */}
+            <nav className="flex flex-col gap-3">
+              {NAV_LINKS.map((link) => (
+                <div key={link.href}>
+                  {isHomePage ? (
+                    <button 
+                      onClick={() => handleNavClick(link.target)}
+                      className="w-full text-left p-3.5 rounded-xl border-3 border-black bg-primary text-black hover:bg-yellow shadow-[4px_4px_0px_#FFFFFF] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-between cursor-pointer group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono font-black text-xs bg-black text-white px-2 py-0.5 rounded">
+                          {link.num}
+                        </span>
+                        <span className="font-display font-black text-xl uppercase tracking-tight">
+                          {link.label}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 font-mono text-sm font-bold opacity-80">
+                        <span>{link.kanji}</span>
+                        <ArrowUpRight size={18} />
+                      </div>
+                    </button>
+                  ) : (
+                    <Link 
+                      to={link.href} 
+                      onClick={() => setIsOpen(false)}
+                      className="w-full text-left p-3.5 rounded-xl border-3 border-black bg-primary text-black hover:bg-yellow shadow-[4px_4px_0px_#FFFFFF] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-between group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono font-black text-xs bg-black text-white px-2 py-0.5 rounded">
+                          {link.num}
+                        </span>
+                        <span className="font-display font-black text-xl uppercase tracking-tight">
+                          {link.label}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 font-mono text-sm font-bold opacity-80">
+                        <span>{link.kanji}</span>
+                        <ArrowUpRight size={18} />
+                      </div>
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </nav>
           </div>
-        </nav>
+
+          {/* Drawer Footer Poster Callout */}
+          <div className="pt-6 border-t-3 border-white/20 mt-6">
+            <div className="p-4 bg-red border-3 border-black rounded-2xl mb-4 shadow-[4px_4px_0px_#FFD21F] text-xs font-bold text-white flex items-start gap-2.5">
+              <span className="text-xl">🍱</span>
+              <div>
+                <strong className="block font-display uppercase tracking-wider text-yellow font-black">
+                  Home Science Project · 食育展示
+                </strong>
+                <span>All 9 dishes home-prepared by Class 7 Tulip students & presented at SPSC.</span>
+              </div>
+            </div>
+
+            <Button 
+              size="lg" 
+              variant="primary" 
+              className="w-full shadow-[5px_5px_0px_#FFFFFF]"
+              onClick={() => {
+                setIsOpen(false);
+                if (isHomePage) {
+                  handleNavClick('#menu');
+                } else {
+                  navigate('/#menu');
+                }
+              }}
+            >
+              Explore All 9 Dishes (料理一覧)
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );

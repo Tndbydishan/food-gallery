@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { scrollToElement, scrollToTop } from '../utils/lenis';
-import { ShieldCheck, Heart } from 'lucide-react';
+import { JapaneseSeal, Halftone } from './graphic';
+import { ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
   const location = useLocation();
@@ -17,123 +18,126 @@ export function Footer() {
     }
   };
 
+  const navLinks = [
+    { id: 'home', label: 'Home', kanji: '起点' },
+    { id: 'menu', label: 'Menu', kanji: '料理' },
+    { id: 'map', label: 'Map', kanji: '配置' },
+    { id: 'highlights', label: 'Pillars', kanji: '科学' },
+    { id: 'about', label: 'About', kanji: '概要' },
+    { id: 'team', label: 'Team', kanji: '生徒' },
+  ];
+
   return (
-    <footer className="bg-brand-text text-brand-soft-cream py-14 md:py-20 px-4 sm:px-6 lg:px-8 mt-16 md:mt-24 rounded-t-[36px] md:rounded-t-[52px]">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12">
+    <footer className="bg-deep-black text-white pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-t-4 border-black relative overflow-hidden">
+      
+      <Halftone color="yellow" opacity={0.03} />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
         
-        {/* Left Column: School Identity & Description */}
-        <div className="md:col-span-6 flex flex-col gap-4">
-          <div>
-            <span className="text-xs uppercase tracking-widest font-bold text-brand-baby-blue/80">
-              Home Science Project
-            </span>
-            <h3 className="font-display text-3xl sm:text-4xl text-brand-baby-blue mt-1">
+        {/* Main 12-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 pb-14 border-b-3 border-white/20">
+          
+          {/* Brand & Project Identity (6 cols) */}
+          <div className="md:col-span-6 flex flex-col gap-4">
+            <div className="flex items-center gap-3 mb-1">
+              <span className="bg-primary text-black border-2 border-white px-2.5 py-0.5 rounded-md text-xs font-display font-black uppercase shadow-[3px_3px_0px_#FFFFFF]">
+                SPSC
+              </span>
+              <span className="text-xs uppercase font-mono tracking-widest text-yellow font-black">
+                南尖学園 · Home Science Food Festival
+              </span>
+            </div>
+
+            <h3 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">
               Southpoint School and College
             </h3>
-            <p className="font-bold tracking-widest uppercase text-xs sm:text-sm opacity-90 mt-0.5">
-              Class 7 — Section Tulip
+            
+            <p className="font-mono text-sm text-yellow font-black uppercase tracking-wider -mt-1">
+              Class 7 — Section Tulip · 第7学年チューリップ組
             </p>
-          </div>
-          
-          <p className="max-w-md opacity-80 text-sm sm:text-base leading-relaxed">
-            This website is a digital showcase of the Home Science Food Festival project created by Class 7, Section Tulip of Southpoint School and College. The project brings together food preparation, nutrition, presentation, creativity, teamwork and basic Home Science concepts.
-          </p>
-
-          {/* Dedicated Disclaimer box */}
-          <div className="p-3.5 bg-white/5 rounded-2xl border border-white/10 max-w-md flex items-start gap-2.5">
-            <ShieldCheck size={18} className="text-brand-baby-blue shrink-0 mt-0.5" />
-            <p className="text-xs opacity-75 leading-relaxed">
-              <strong className="text-white font-bold">About the Food: </strong>
-              The food featured in this project was prepared at home and brought to school for presentation as part of our Home Science project. The dishes were not cooked or prepared on the school premises.
+            
+            <p className="max-w-md text-white/85 text-sm sm:text-base leading-relaxed font-medium mt-1">
+              This website is a digital showcase of the Home Science Food Festival project created by Class 7, Section Tulip of Southpoint School and College. The project brings together food preparation, nutrition, presentation, creativity, teamwork and basic Home Science concepts.
             </p>
+
+            {/* Official Disclaimer Box */}
+            <div className="p-4 bg-yellow text-black border-3 border-white rounded-2xl max-w-md flex items-start gap-3 mt-2 shadow-[4px_4px_0px_#F04424]">
+              <ShieldCheck size={22} className="text-red shrink-0 mt-0.5" />
+              <p className="text-xs leading-relaxed font-bold">
+                <strong className="font-black font-display uppercase tracking-wide block mb-0.5">
+                  About The Food Preparation (家庭調理に関する告知):
+                </strong>
+                The food featured in this project was prepared at home and brought to school for presentation as part of our Home Science project. The dishes were not cooked or prepared on the school premises.
+              </p>
+            </div>
+
+            {/* Collaboration Credit */}
+            <div className="pt-2 text-xs font-mono text-white/70">
+              Made in collaboration with the <strong className="text-yellow font-black">SPSC Programming Club (情報科学部)</strong>
+            </div>
           </div>
 
-          <p className="text-xs opacity-65 flex items-center gap-1.5 pt-1">
-            <span>Made in collaboration with the</span>
-            <strong className="text-brand-baby-blue font-bold">SPSC Programming Club</strong>
+          {/* Navigation Links (3 cols) */}
+          <div className="md:col-span-3">
+            <h4 className="font-display font-black text-base uppercase tracking-wider mb-5 text-yellow border-b-2 border-white/20 pb-2">
+              Site Navigation (目次)
+            </h4>
+            <ul className="flex flex-col gap-3 text-sm font-bold text-white/85">
+              {navLinks.map((item) => (
+                <li key={item.id}>
+                  {isHomePage ? (
+                    <button 
+                      onClick={() => handleLinkClick(`#${item.id}`)} 
+                      className="hover:text-yellow transition-colors cursor-pointer capitalize text-left flex items-center gap-2 group"
+                    >
+                      <span className="font-mono text-xs text-yellow opacity-75">{item.kanji}</span>
+                      <span>{item.label}</span>
+                      <ArrowUpRight size={14} className="opacity-60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </button>
+                  ) : (
+                    <Link 
+                      to={`/#${item.id}`} 
+                      className="hover:text-yellow transition-colors capitalize flex items-center gap-2 group text-white"
+                    >
+                      <span className="font-mono text-xs text-yellow opacity-75">{item.kanji}</span>
+                      <span>{item.label}</span>
+                      <ArrowUpRight size={14} className="opacity-60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Educational Focus (3 cols) */}
+          <div className="md:col-span-3">
+            <h4 className="font-display font-black text-base uppercase tracking-wider mb-5 text-yellow border-b-2 border-white/20 pb-2">
+              Learning Focus (学修内容)
+            </h4>
+            <ul className="flex flex-col gap-2.5 text-xs sm:text-sm font-mono text-white/80">
+              <li>✦ Culinary Heat Chemistry (熱化学反応)</li>
+              <li>✦ Starch Retrogradation (老化デンプン)</li>
+              <li>✦ Maillard Browning Reactions (メイラード反応)</li>
+              <li>✦ Food Hygiene & Packing (衛生・梱包)</li>
+              <li>✦ Complete Allergen Labeling (アレルゲン明記)</li>
+              <li>✦ Energy & Macro Calculations (栄養計算)</li>
+              <li>✦ Color & Aesthetic Plating (色彩調和)</li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Bottom Copyright & Seal Bar */}
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-white/60 text-center md:text-left">
+          <p>
+            Nutritional calculations are approximate educational estimates for Home Science student demonstration.
           </p>
+          <div className="flex items-center gap-3">
+            <span>&copy; {new Date().getFullYear()} SPSC Class 7 Tulip · All Rights Reserved</span>
+            <JapaneseSeal kanji="南尖" subtext="2026" size="sm" variant="red" rotate="0deg" />
+          </div>
         </div>
 
-        {/* Middle Column: Navigation */}
-        <div className="md:col-span-3">
-          <h4 className="font-bold text-sm uppercase tracking-wider mb-5 text-brand-baby-blue">Navigation</h4>
-          <ul className="flex flex-col gap-3 text-sm opacity-80">
-            <li>
-              {isHomePage ? (
-                <button onClick={() => handleLinkClick('#home')} className="hover:text-brand-baby-blue transition-colors cursor-pointer text-left">
-                  Home
-                </button>
-              ) : (
-                <Link to="/#home" className="hover:text-brand-baby-blue transition-colors">Home</Link>
-              )}
-            </li>
-            <li>
-              {isHomePage ? (
-                <button onClick={() => handleLinkClick('#menu')} className="hover:text-brand-baby-blue transition-colors cursor-pointer text-left">
-                  Food Menu
-                </button>
-              ) : (
-                <Link to="/#menu" className="hover:text-brand-baby-blue transition-colors">Food Menu</Link>
-              )}
-            </li>
-            <li>
-              {isHomePage ? (
-                <button onClick={() => handleLinkClick('#map')} className="hover:text-brand-baby-blue transition-colors cursor-pointer text-left">
-                  Festival Map
-                </button>
-              ) : (
-                <Link to="/#map" className="hover:text-brand-baby-blue transition-colors">Festival Map</Link>
-              )}
-            </li>
-            <li>
-              {isHomePage ? (
-                <button onClick={() => handleLinkClick('#highlights')} className="hover:text-brand-baby-blue transition-colors cursor-pointer text-left">
-                  Event Highlights
-                </button>
-              ) : (
-                <Link to="/#highlights" className="hover:text-brand-baby-blue transition-colors">Event Highlights</Link>
-              )}
-            </li>
-            <li>
-              {isHomePage ? (
-                <button onClick={() => handleLinkClick('#about')} className="hover:text-brand-baby-blue transition-colors cursor-pointer text-left">
-                  About Event
-                </button>
-              ) : (
-                <Link to="/#about" className="hover:text-brand-baby-blue transition-colors">About Event</Link>
-              )}
-            </li>
-            <li>
-              {isHomePage ? (
-                <button onClick={() => handleLinkClick('#team')} className="hover:text-brand-baby-blue transition-colors cursor-pointer text-left">
-                  Student Team
-                </button>
-              ) : (
-                <Link to="/#team" className="hover:text-brand-baby-blue transition-colors">Student Team</Link>
-              )}
-            </li>
-          </ul>
-        </div>
-
-        {/* Right Column: Project Info */}
-        <div className="md:col-span-3">
-          <h4 className="font-bold text-sm uppercase tracking-wider mb-5 text-brand-baby-blue">Educational Focus</h4>
-          <ul className="flex flex-col gap-2.5 text-xs sm:text-sm opacity-80">
-            <li>• Nutritional Balance & Energy</li>
-            <li>• Starch Gelatinization & Reactions</li>
-            <li>• Allergen Identification & Care</li>
-            <li>• Temperature Control & Hygiene</li>
-            <li>• Presentation & Portioning</li>
-            <li>• Metric & Imperial Measurements</li>
-          </ul>
-        </div>
-
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="container mx-auto mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 opacity-60 text-xs text-center md:text-left">
-        <p>Nutritional calculations are approximate student estimates for Home Science educational showcase purposes.</p>
-        <p>&copy; {new Date().getFullYear()} SPSC Class 7 Tulip • Home Science Food Festival</p>
       </div>
     </footer>
   );

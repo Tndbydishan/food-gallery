@@ -1,35 +1,85 @@
 import React from 'react';
-import { cn } from '@/src/utils/cn';
+import { cn } from '../../utils/cn';
 import { Badge } from './Badge';
 
-interface SectionHeadingProps {
+export interface SectionHeadingProps {
   badge?: string;
+  badgeVariant?: 'yellow' | 'red' | 'white' | 'black' | 'blue' | 'green';
+  kanjiBadge?: string;
+  number?: string | number;
   title: string;
   description?: string;
   className?: string;
   align?: 'left' | 'center';
+  theme?: 'dark' | 'light';
 }
 
 export function SectionHeading({ 
   badge, 
+  badgeVariant = 'yellow',
+  kanjiBadge,
+  number,
   title, 
   description, 
   className,
-  align = 'center'
+  align = 'center',
+  theme = 'light',
 }: SectionHeadingProps) {
+  const isDark = theme === 'dark';
+
   return (
     <div className={cn(
-      "flex flex-col gap-3 md:gap-4",
-      align === 'center' ? "items-center text-center" : "items-start text-left",
+      "flex flex-col gap-3",
+      align === 'center' ? "items-center text-center mx-auto" : "items-start text-left",
       className
     )}>
-      {badge && <Badge variant="peach">{badge}</Badge>}
-      <h2 className="text-4xl md:text-5xl lg:text-6xl text-brand-text font-display leading-[1.1]">{title}</h2>
+      {/* Top Graphic Cluster */}
+      {(badge || kanjiBadge || number) && (
+        <div className="flex items-center gap-2 mb-1">
+          {number && (
+            <span className={cn(
+              "font-mono text-xs font-black uppercase px-2 py-0.5 rounded border-2 border-black",
+              isDark ? "bg-primary text-black" : "bg-black text-yellow"
+            )}>
+              No. {number}
+            </span>
+          )}
+          {kanjiBadge && (
+            <span className="font-display font-black text-xs px-2 py-0.5 rounded border-2 border-red text-red bg-red/10">
+              {kanjiBadge}
+            </span>
+          )}
+          {badge && (
+            <Badge variant={badgeVariant} rotate="-1">
+              {badge}
+            </Badge>
+          )}
+        </div>
+      )}
+
+      {/* Main Headline */}
+      <h2 className={cn(
+        "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black leading-[1.02] tracking-tight [text-wrap:balance]",
+        isDark ? "text-white" : "text-black"
+      )}>
+        {title}
+      </h2>
+
+      {/* Description */}
       {description && (
-        <p className="max-w-2xl text-base md:text-lg text-brand-text/80 px-4 md:px-0 mt-1 md:mt-2 font-medium">
+        <p className={cn(
+          "max-w-2xl text-sm sm:text-base md:text-lg font-medium leading-relaxed [text-wrap:pretty]",
+          isDark ? "text-white/80" : "text-black/80"
+        )}>
           {description}
         </p>
       )}
+
+      {/* Graphic Underline Accent */}
+      <div className={cn(
+        "h-1 w-16 mt-1 border-b-3 border-black",
+        isDark ? "border-yellow" : "border-black"
+      )} />
     </div>
   );
 }

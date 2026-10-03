@@ -1,27 +1,40 @@
 import React from 'react';
-import { cn } from '@/src/utils/cn';
+import { cn } from '../../utils/cn';
 
-interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'baby-blue' | 'blue' | 'cream' | 'mint' | 'peach' | 'white';
+export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: 'yellow' | 'red' | 'white' | 'black' | 'blue' | 'green' | 'pink' | 'orange';
+  rotate?: '-1' | '1' | '-2' | '2' | '-3' | '3' | 'none';
 }
 
 export function Badge({ 
   className, 
-  variant = 'white', 
+  variant = 'yellow', 
+  rotate = 'none',
   children, 
   ...props 
 }: BadgeProps) {
   return (
     <div
       className={cn(
-        "inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider",
+        "inline-flex items-center gap-1.5 px-3 py-1 text-xs font-display font-black uppercase tracking-wider border-2.5 border-black rounded-lg shadow-[3px_3px_0px_#111111] select-none",
         {
-          'bg-brand-baby-blue text-brand-text': variant === 'baby-blue',
-          'bg-brand-blue text-brand-text': variant === 'blue',
-          'bg-brand-cream text-brand-text': variant === 'cream',
-          'bg-brand-soft-mint text-brand-text': variant === 'mint',
-          'bg-brand-accent-peach text-brand-text': variant === 'peach',
-          'bg-white text-brand-text': variant === 'white',
+          /* Saturated Inks */
+          'bg-primary text-black': variant === 'yellow',
+          'bg-red text-white': variant === 'red',
+          'bg-white text-black': variant === 'white',
+          'bg-black text-yellow': variant === 'black',
+          'bg-blue text-white': variant === 'blue',
+          'bg-green text-white': variant === 'green',
+          'bg-pink text-white': variant === 'pink',
+          'bg-orange text-white': variant === 'orange',
+
+          /* Rotations */
+          '-rotate-1': rotate === '-1',
+          'rotate-1': rotate === '1',
+          '-rotate-2': rotate === '-2',
+          'rotate-2': rotate === '2',
+          '-rotate-3': rotate === '-3',
+          'rotate-3': rotate === '3',
         },
         className
       )}

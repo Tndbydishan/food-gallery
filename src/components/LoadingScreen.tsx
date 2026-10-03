@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import anime from 'animejs';
-import { Utensils, Sparkles } from 'lucide-react';
+import { Utensils } from 'lucide-react';
+import { JapaneseSeal } from './graphic';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -10,7 +11,6 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       setIsDone(true);
@@ -18,7 +18,6 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
       return;
     }
 
-    // Lock scroll during entrance
     document.body.style.overflow = 'hidden';
 
     const tl = anime.timeline({
@@ -26,22 +25,21 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
     });
 
     tl.add({
-      targets: '.loading-icon',
-      translateY: [-15, 0],
-      scale: [0.85, 1],
+      targets: '.loading-box',
+      scale: [0.88, 1],
       opacity: [0, 1],
-      duration: 600,
+      duration: 500,
     })
     .add({
       targets: '.loading-text-wrapper',
       opacity: [0, 1],
-      translateY: [8, 0],
-      duration: 500,
-    }, '-=300')
+      translateY: [6, 0],
+      duration: 400,
+    }, '-=200')
     .add({
       targets: '.loading-container',
       opacity: 0,
-      duration: 450,
+      duration: 400,
       delay: 350,
       complete: () => {
         setIsDone(true);
@@ -58,20 +56,25 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   if (isDone) return null;
 
   return (
-    <div className="loading-container fixed inset-0 z-[9999] bg-brand-cream flex flex-col items-center justify-center p-6 text-center">
-      <div className="loading-icon bg-white p-5 md:p-6 rounded-full shadow-[0_8px_30px_rgba(137,207,240,0.25)] border-2 border-brand-baby-blue/30 mb-5 flex-shrink-0">
-        <Utensils className="w-9 h-9 md:w-11 md:h-11 text-brand-baby-blue" />
-      </div>
-      <div className="loading-text-wrapper opacity-0 flex flex-col items-center gap-1">
-        <span className="text-[11px] font-bold uppercase tracking-widest text-brand-text/60">
-          Southpoint School and College
-        </span>
-        <h2 className="font-display text-brand-text text-2xl md:text-3xl tracking-wide">
-          Class 7 Tulip
-        </h2>
-        <p className="text-xs md:text-sm text-brand-text/75 font-semibold mt-1">
-          Home Science Food Festival Showcase
-        </p>
+    <div className="loading-container fixed inset-0 z-[9999] bg-deep-black flex flex-col items-center justify-center p-6 text-center select-none">
+      <div className="loading-box bg-primary border-4 border-black p-7 rounded-3xl shadow-[8px_8px_0px_#FFFFFF] mb-6 flex flex-col items-center -rotate-1 relative overflow-hidden">
+        
+        {/* Japanese Top Seal */}
+        <div className="mb-3">
+          <JapaneseSeal kanji="食育" subtext="SPSC" size="sm" variant="red" rotate="-4deg" />
+        </div>
+
+        <div className="loading-text-wrapper opacity-0 flex flex-col items-center">
+          <span className="text-[11px] font-mono font-black uppercase tracking-widest text-black/80">
+            南尖学園 · Class 7 Tulip 第7学年
+          </span>
+          <h2 className="font-display font-black text-black text-3xl tracking-tight mt-1">
+            Food Festival
+          </h2>
+          <span className="bg-black text-yellow px-3 py-1 rounded-md text-[11px] font-mono font-black uppercase tracking-wider mt-2 border border-white">
+            Pure Home Science · 家庭科展示
+          </span>
+        </div>
       </div>
     </div>
   );

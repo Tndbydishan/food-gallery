@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FoodItem } from '../data/foods';
 import { Badge } from './ui/Badge';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Flame } from 'lucide-react';
 import { scrollToTop } from '../utils/lenis';
 
 interface FoodCardProps {
@@ -14,58 +14,88 @@ export function FoodCard({ food }: FoodCardProps) {
     scrollToTop(true);
   };
 
+  const categoryConfig: Record<string, { variant: 'yellow' | 'red' | 'blue' | 'green' | 'pink' | 'orange', kanji: string }> = {
+    main: { variant: 'yellow', kanji: '主食' },
+    savory: { variant: 'orange', kanji: '風味' },
+    salad: { variant: 'green', kanji: '生菜' },
+    beverage: { variant: 'blue', kanji: '飲料' },
+    dessert: { variant: 'pink', kanji: '甘味' },
+  };
+
+  const currentCategory = categoryConfig[food.category] || { variant: 'yellow', kanji: '料理' };
+
   return (
     <Link 
       to={`/food/${food.id}`}
       onClick={handleClick}
-      className="food-card group cursor-pointer bg-white/90 hover:bg-white rounded-[28px] md:rounded-[32px] p-4 pb-5 md:pb-6 transition-all duration-300 hover:-translate-y-1.5 shadow-[0_4px_20px_rgba(48,52,59,0.04)] hover:shadow-[0_16px_36px_rgba(137,207,240,0.18)] border border-brand-text/5 hover:border-brand-baby-blue/60 flex flex-col h-full outline-none focus-visible:ring-4 focus-visible:ring-brand-baby-blue/50"
+      className="group cursor-pointer bg-white border-3.5 border-black rounded-3xl p-5 shadow-[6px_6px_0px_#111111] hover:shadow-[9px_9px_0px_#111111] hover:-translate-x-0.5 hover:-translate-y-1 transition-all duration-150 flex flex-col h-full outline-none focus-visible:ring-4 focus-visible:ring-primary relative overflow-hidden"
     >
-      <div className="relative aspect-[4/3] mb-4 overflow-hidden rounded-[20px] md:rounded-[24px] bg-brand-soft-cream/80">
+      {/* Top Graphic Header: Food Image with Saturated Frame */}
+      <div className="relative aspect-[4/3] mb-4 overflow-hidden rounded-2xl border-3 border-black bg-primary">
         <img 
           src={food.image} 
           alt={food.name} 
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute top-3 left-3 flex flex-wrap gap-2">
-          <Badge variant="cream" className="shadow-xs backdrop-blur-xs">{food.category}</Badge>
+        
+        {/* Category Sticker with Kanji & English */}
+        <div className="absolute top-2.5 left-2.5 flex items-center gap-1">
+          <Badge 
+            variant={currentCategory.variant} 
+            rotate="-2"
+            className="shadow-[3px_3px_0px_#111111] border-2.5 text-xs font-black"
+          >
+            <span className="font-mono opacity-80 mr-1">{currentCategory.kanji}</span>
+            <span>{food.category}</span>
+          </Badge>
+        </div>
+
+        {/* Calorie Tag Overlay Styled like a Japanese Retail Price Tag */}
+        <div className="absolute bottom-2.5 right-2.5 bg-black text-yellow px-2.5 py-1 rounded-lg text-xs font-mono font-black flex items-center gap-1 border-2 border-white shadow-[2px_2px_0px_#FFD21F]">
+          <Flame size={13} className="text-red fill-red" />
+          <span>{food.nutrition.energyKcal} kcal</span>
         </div>
       </div>
       
-      <div className="px-1 md:px-2 flex-grow flex flex-col">
-        <h3 className="text-xl md:text-2xl font-display text-brand-text mb-2 line-clamp-1 group-hover:text-brand-text/90 transition-colors">
-          {food.name}
-        </h3>
+      {/* Content Details */}
+      <div className="flex-grow flex flex-col">
         
-        <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
-          {food.dietary.slice(0, 2).map(tag => (
-            <span key={tag} className="text-[11px] md:text-xs font-bold text-brand-text/70 bg-brand-soft-cream px-2.5 py-1 rounded-md border border-brand-text/5">
-              {tag}
-            </span>
+        {/* Dish Title */}
+        <div className="flex items-start justify-between gap-2 mb-1.5">
+          <h3 className="text-xl sm:text-2xl font-display font-black text-black group-hover:text-red transition-colors tracking-tight line-clamp-1">
+            {food.name}
+          </h3>
+        </div>
+        
+        {/* Dietary Unboxed Tags (Zero-Pill Discipline) */}
+        <div className="flex flex-wrap items-center gap-1.5 mb-3 text-xs font-bold text-black/75 font-mono">
+          {food.dietary.map((tag, idx) => (
+            <React.Fragment key={tag}>
+              <span>{tag}</span>
+              {idx < food.dietary.length - 1 && <span className="opacity-40">·</span>}
+            </React.Fragment>
           ))}
-          {food.dietary.length > 2 && (
-            <span className="text-[11px] md:text-xs font-bold text-brand-text/60 bg-brand-soft-cream px-2 py-1 rounded-md">
-              +{food.dietary.length - 2}
-            </span>
-          )}
         </div>
 
-        <p className="text-xs md:text-sm text-brand-text/75 mb-5 line-clamp-2 leading-relaxed flex-grow">
+        {/* Short Description */}
+        <p className="text-xs sm:text-sm text-black/80 mb-5 line-clamp-2 leading-relaxed flex-grow font-medium">
           {food.description}
         </p>
 
-        <div className="flex items-center justify-between mt-auto pt-3.5 border-t border-brand-text/5">
-          <div className="text-xs md:text-sm font-bold text-brand-text">
-            {food.nutrition.energyKcal} <span className="text-[11px] md:text-xs font-normal text-brand-text/60">kcal / {food.nutrition.basis}</span>
+        {/* Bottom Poster Action Bar */}
+        <div className="flex items-center justify-between pt-3.5 border-t-2.5 border-black/15 mt-auto">
+          <div className="text-xs font-mono font-bold text-black/80">
+            Portion: <span className="text-black font-black bg-yellow px-1.5 py-0.5 rounded border border-black">{food.nutrition.basis}</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 text-brand-text font-bold text-xs md:text-sm group-hover:text-brand-baby-blue transition-colors">
-            <span>Explore Dish</span>
-            <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+
+          <div className="inline-flex items-center gap-1 text-xs font-display font-black text-black group-hover:text-red transition-colors uppercase tracking-wider">
+            <span>Inspect Recipe (詳細)</span>
+            <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </div>
         </div>
+
       </div>
     </Link>
   );
 }
-
-

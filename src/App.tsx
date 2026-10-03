@@ -26,7 +26,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <LoadingScreen onLoadingComplete={() => setLoadingComplete(true)} />
-      <div className={`min-h-screen bg-brand-cream selection:bg-brand-baby-blue selection:text-brand-text ${!loadingComplete ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}>
+      <div className={`min-h-screen bg-paper selection:bg-primary selection:text-black font-body text-black ${!loadingComplete ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
         <Navigation />
         
         <Routes>

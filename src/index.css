@@ -1,35 +1,348 @@
 @import "tailwindcss";
 
-@theme {
-  --color-brand-baby-blue: #89CFF0;
-  --color-brand-blue: #B8DDF2;
-  --color-brand-cream: #FFF9EF;
-  --color-brand-soft-cream: #FFF4DC;
-  --color-brand-text: #303038;
-  --color-brand-soft-baby-blue: #D4F1F9;
-  --color-brand-soft-blue: #D9EEF8;
-  --color-brand-accent-peach: #FFD6B8;
-  --color-brand-soft-mint: #D8F0E3;
-  --color-brand-white: #FFFFFF;
+/* ==========================================================================
+   01. LOCAL TYPOGRAPHY / @FONT-FACE DECLARATIONS
+   ========================================================================== */
 
-  --font-display: "Slackey", sans-serif;
-  --font-body: "Nunito", sans-serif;
-
-  --radius-sm: 12px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
-  --radius-xl: 36px;
+@font-face {
+  font-family: 'PrimaryDisplay';
+  src: url('/fonts/primary/Primary-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'PrimaryDisplay';
+  src: url('/fonts/primary/Primary-Black.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PrimaryDisplay';
+  src: url('/fonts/primary/Primary-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SecondaryBody';
+  src: url('/fonts/secondary/Secondary-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SecondaryBody';
+  src: url('/fonts/secondary/Secondary-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SecondaryBody';
+  src: url('/fonts/secondary/Secondary-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   02. DESIGN TOKENS (JAPANESE RETRO × NEO-BRUTALIST PALETTE)
+   Strictly Saturated & Bold — Zero Pastels
+   ========================================================================== */
+
+:root {
+  /* INK BLACK & DEEP BLACK */
+  --color-black: #111111;
+  --color-deep-black: #050505;
+
+  /* POSTER YELLOW & SAFETY YELLOW */
+  --color-yellow: #FFC928;
+  --color-yellow-bright: #FFD21F;
+  --color-primary: #FFD21F;
+  --color-primary-light: #FFE052;
+  --color-primary-dark: #E6B800;
+
+  /* VERMILLION & JAPANESE RED */
+  --color-red: #F04424;
+  --color-red-japanese: #D92B20;
+  --color-red-deep: #A91F1F;
+
+  /* COBALT BLUE & RETRO BLUE */
+  --color-blue: #1769C2;
+  --color-blue-retro: #286FB7;
+  --color-blue-deep: #123C73;
+
+  /* EMERALD GREEN & DEEP GREEN */
+  --color-green: #008F5A;
+  --color-green-deep: #006B46;
+
+  /* HOT PINK & MAGENTA */
+  --color-pink: #E92870;
+  --color-magenta: #C91563;
+
+  /* ORANGE & DEEP ORANGE */
+  --color-orange: #F26A21;
+  --color-orange-deep: #D94A16;
+
+  /* SUPPORTING OFF-WHITE & PAPER (used sparingly) */
+  --color-white: #FFFFFF;
+  --color-offwhite: #FFF4D6;
+  --color-paper: #F4E4BD;
+
+  /* BORDERS */
+  --border-1: 1.5px;
+  --border-2: 2.5px;
+  --border-3: 3.5px;
+  --border-4: 5px;
+
+  /* NEO-BRUTALIST HARD OFFSET SHADOWS */
+  --shadow-sm: 3px 3px 0px #111111;
+  --shadow-md: 5px 5px 0px #111111;
+  --shadow-lg: 8px 8px 0px #111111;
+  --shadow-hero: 10px 10px 0px #111111;
+  --shadow-yellow: 5px 5px 0px #FFD21F;
+  --shadow-red: 5px 5px 0px #F04424;
+  --shadow-white: 4px 4px 0px #FFFFFF;
+}
+
+/* ==========================================================================
+   03. TAILWIND V4 THEME EXTENSION
+   ========================================================================== */
+
+@theme {
+  --color-black: #111111;
+  --color-deep-black: #050505;
+
+  --color-yellow: #FFC928;
+  --color-yellow-bright: #FFD21F;
+  --color-primary: #FFD21F;
+  --color-primary-light: #FFE052;
+  --color-primary-dark: #E6B800;
+
+  --color-red: #F04424;
+  --color-red-japanese: #D92B20;
+  --color-red-deep: #A91F1F;
+
+  --color-blue: #1769C2;
+  --color-blue-retro: #286FB7;
+  --color-blue-deep: #123C73;
+
+  --color-green: #008F5A;
+  --color-green-deep: #006B46;
+
+  --color-pink: #E92870;
+  --color-magenta: #C91563;
+
+  --color-orange: #F26A21;
+  --color-orange-deep: #D94A16;
+
+  --color-offwhite: #FFF4D6;
+  --color-paper: #F4E4BD;
+
+  --font-display: "PrimaryDisplay", "Bricolage Grotesque", "Plus Jakarta Sans", sans-serif;
+  --font-body: "SecondaryBody", "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ==========================================================================
+   04. BASE & EDITORIAL TYPOGRAPHY
+   ========================================================================== */
 
 @layer base {
   body {
-    @apply font-body text-brand-text bg-brand-cream;
+    background-color: var(--color-offwhite);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-normal;
+    font-family: var(--font-display);
+    color: var(--color-black);
+    letter-spacing: -0.025em;
+    font-weight: 800;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-black);
   }
 }
+
+/* ==========================================================================
+   05. JAPANESE RETRO & NEO-BRUTALIST UTILITIES
+   ========================================================================== */
+
+/* Tactile Physical Buttons */
+.btn-poster {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: 3px solid #111111;
+  box-shadow: 5px 5px 0px #111111;
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn-poster:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px #111111;
+}
+
+.btn-poster:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px 0px #111111;
+}
+
+.btn-poster-yellow {
+  background-color: var(--color-primary);
+  color: #111111;
+}
+.btn-poster-yellow:hover {
+  background-color: var(--color-yellow);
+}
+
+.btn-poster-black {
+  background-color: #111111;
+  color: var(--color-yellow-bright);
+}
+.btn-poster-black:hover {
+  background-color: #222222;
+}
+
+.btn-poster-red {
+  background-color: var(--color-red);
+  color: #FFFFFF;
+}
+.btn-poster-red:hover {
+  background-color: var(--color-red-japanese);
+}
+
+.btn-poster-white {
+  background-color: #FFFFFF;
+  color: #111111;
+}
+.btn-poster-white:hover {
+  background-color: var(--color-offwhite);
+}
+
+/* Japanese Retro Halftone Dot Pattern */
+.bg-halftone-dark {
+  background-image: radial-gradient(#111111 2px, transparent 2px);
+  background-size: 16px 16px;
+}
+
+.bg-halftone-yellow {
+  background-image: radial-gradient(#FFD21F 2px, transparent 2px);
+  background-size: 16px 16px;
+}
+
+.bg-halftone-red {
+  background-image: radial-gradient(#F04424 2px, transparent 2px);
+  background-size: 16px 16px;
+}
+
+/* Vertical Text Mode for Japanese Poster Aesthetics */
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.15em;
+}
+
+/* Hard-Border Poster Cards */
+.card-poster {
+  border: 3px solid #111111;
+  box-shadow: 6px 6px 0px #111111;
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-poster:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #111111;
+}
+
+/* ==========================================================================
+   06. CONTINUOUS EDITORIAL MARQUEES
+   ========================================================================== */
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-scroll-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  user-select: none;
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.marquee-track-slow {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll-reverse 26s linear infinite;
+}
+
+.marquee-container:hover .marquee-track,
+.marquee-container:hover .marquee-track-slow,
+.marquee-container:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track-slow,
+  .marquee-track-reverse {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   07. LENIS SMOOTH SCROLL INTEGRATION
+   ========================================================================== */
 
 html.lenis, html.lenis body {
   height: auto;

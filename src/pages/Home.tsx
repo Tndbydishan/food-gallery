@@ -6,17 +6,86 @@ import { FoodMenu } from '../components/FoodMenu';
 import { AboutEvent } from '../components/AboutEvent';
 import { ManagementTeam } from '../components/ManagementTeam';
 import { Statistics, BuildWithPassion } from '../components/BuildWithPassion';
+import { Marquee } from '../components/ui/Marquee';
 
 export function Home() {
   return (
-    <main>
+    <main className="bg-offwhite min-h-screen">
       <Hero />
+      
+      {/* Primary Hero Divider Marquee (Black Strip with Safety Yellow Typography) */}
+      <Marquee 
+        items={[
+          "DISCOVER · 発見", 
+          "CREATE · 創造", 
+          "TASTE · 美味", 
+          "SCIENCE · 科学", 
+          "HYGIENE · 衛生", 
+          "NUTRITION · 栄養", 
+          "TEAMWORK · 協調"
+        ]} 
+        variant="black" 
+        speed="normal" 
+        separator="✦"
+      />
+
       <EventHighlights />
+
+      {/* High-Contrast Red Transition Marquee */}
+      <Marquee 
+        items={[
+          "CLASSROOM BLUEPRINT", 
+          "FLOOR PLAN · 配置図", 
+          "9 EXHIBITED STALLS", 
+          "SOUTHPOINT SCHOOL & COLLEGE", 
+          "NO. 01 TO NO. 09"
+        ]} 
+        variant="red" 
+        speed="normal" 
+        separator="★"
+      />
+
       <StallMap />
+
+      {/* Information Ticker Marquee (Safety Yellow with Black Type) */}
+      <Marquee 
+        items={[
+          "PREPARED AT HOME · 家庭調理", 
+          "PRESENTED AT SCHOOL · 学校展示", 
+          "SPSC CLASS 7 TULIP · 第7学年", 
+          "PURE HOME SCIENCE PROJECT", 
+          "9 EXHIBITED DISHES · 全9品", 
+          "HYGIENE VERIFIED · 衛生管理"
+        ]} 
+        variant="ticker" 
+        speed="slow" 
+        separator="★"
+      />
+
       <FoodMenu />
+
       <Statistics />
+
       <AboutEvent />
+
       <ManagementTeam />
+
+      {/* High-Contrast Section Divider Marquee (Cobalt Blue with White Typography) */}
+      <Marquee 
+        items={[
+          "COLLABORATION · 協同", 
+          "PASSION · 情熱", 
+          "CULINARY ARTS · 料理", 
+          "CHEMISTRY · 化学", 
+          "STUDENT SQUADS · 生徒班", 
+          "SPSC 2026 · 南尖学園"
+        ]} 
+        variant="blue" 
+        speed="normal" 
+        reverse={true} 
+        separator="✦"
+      />
+
       <BuildWithPassion />
     </main>
   );
