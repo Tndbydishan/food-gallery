@@ -18,7 +18,7 @@ export function NumberLabel({
   const styles = {
     yellow: 'bg-primary text-black border-black shadow-[3px_3px_0px_#111111]',
     red: 'bg-red text-white border-black shadow-[3px_3px_0px_#111111]',
-    black: 'bg-black text-yellow border-black shadow-[3px_3px_0px_#FFD21F]',
+    black: 'bg-blue text-white border-black shadow-[3px_3px_0px_#111111]',
     blue: 'bg-blue text-white border-black shadow-[3px_3px_0px_#111111]',
   };
 

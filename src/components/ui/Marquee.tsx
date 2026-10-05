@@ -6,7 +6,7 @@ export interface MarqueeProps {
   separator?: string;
   speed?: 'normal' | 'slow' | 'fast';
   reverse?: boolean;
-  variant?: 'yellow' | 'black' | 'red' | 'blue' | 'ticker';
+  variant?: 'yellow' | 'blue' | 'red' | 'white' | 'ticker';
   className?: string;
 }
 
@@ -27,13 +27,13 @@ export function Marquee({
   return (
     <div 
       className={cn(
-        "marquee-container w-full border-y-3 border-black overflow-hidden py-3 select-none",
+        "marquee-container w-full border-y-3.5 border-black overflow-hidden py-3 select-none",
         {
           'bg-primary text-black': variant === 'yellow',
-          'bg-black text-yellow': variant === 'black',
-          'bg-red text-white': variant === 'red',
           'bg-blue text-white': variant === 'blue',
-          'bg-yellow-bright text-black py-2 text-xs font-mono': variant === 'ticker',
+          'bg-red text-white': variant === 'red',
+          'bg-white text-black': variant === 'white',
+          'bg-yellow-bright text-black py-2.5 text-xs font-mono font-bold': variant === 'ticker',
         },
         className
       )}
@@ -43,7 +43,7 @@ export function Marquee({
         {repeatedItems.map((item, index) => (
           <span key={index} className="inline-flex items-center mx-4 gap-4 whitespace-nowrap font-display font-black uppercase tracking-wider text-sm sm:text-base md:text-lg">
             <span>{item}</span>
-            <span className="opacity-75 text-xs sm:text-sm font-normal">{separator}</span>
+            <span className="opacity-80 text-xs sm:text-sm font-bold text-red">{separator}</span>
           </span>
         ))}
       </div>
@@ -51,7 +51,7 @@ export function Marquee({
         {repeatedItems.map((item, index) => (
           <span key={`dup-${index}`} className="inline-flex items-center mx-4 gap-4 whitespace-nowrap font-display font-black uppercase tracking-wider text-sm sm:text-base md:text-lg">
             <span>{item}</span>
-            <span className="opacity-75 text-xs sm:text-sm font-normal">{separator}</span>
+            <span className="opacity-80 text-xs sm:text-sm font-bold text-red">{separator}</span>
           </span>
         ))}
       </div>

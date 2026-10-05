@@ -39,7 +39,7 @@ export function SectionHeading({
           {number && (
             <span className={cn(
               "font-mono text-xs font-black uppercase px-2 py-0.5 rounded border-2 border-black",
-              isDark ? "bg-primary text-black" : "bg-black text-yellow"
+              isDark ? "bg-primary text-black" : "bg-blue text-white shadow-[2px_2px_0px_#111111]"
             )}>
               No. {number}
             </span>

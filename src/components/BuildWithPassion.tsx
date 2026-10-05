@@ -2,13 +2,18 @@ import React from 'react';
 import { SectionHeading } from './ui/SectionHeading';
 import { Code, Sparkles, Heart } from 'lucide-react';
 import { Halftone, StarBurst } from './graphic';
+import { foods } from '../data/foods';
+import { teamGroups } from '../data/team';
 
 export function Statistics() {
+  const allMembers = [...teamGroups.decoration, ...teamGroups.foodPrep];
+  const uniqueStudents = new Set(allMembers.map(m => m.name)).size;
+
   const stats = [
-    { label: "Exhibited Dishes", kanji: "展示品数", value: "09", desc: "Handcrafted recipes", color: "bg-primary text-black", shadow: "shadow-[5px_5px_0px_#111111]" },
+    { label: "Exhibited Dishes", kanji: "展示品数", value: `${foods.length < 10 ? '0' + foods.length : foods.length}`, desc: "Handcrafted recipes", color: "bg-primary text-black", shadow: "shadow-[5px_5px_0px_#111111]" },
     { label: "Food Categories", kanji: "料理区分", value: "05", desc: "From mains to desserts", color: "bg-green text-white", shadow: "shadow-[5px_5px_0px_#111111]" },
     { label: "Home Science", kanji: "家庭科実践", value: "100%", desc: "Curriculum integrated", color: "bg-red text-white", shadow: "shadow-[5px_5px_0px_#111111]" },
-    { label: "Student Creators", kanji: "参加生徒", value: "16", desc: "Section Tulip cohort", color: "bg-blue text-white", shadow: "shadow-[5px_5px_0px_#111111]" }
+    { label: "Student Creators", kanji: "参加生徒", value: `${uniqueStudents}`, desc: "Section Tulip cohort", color: "bg-blue text-white", shadow: "shadow-[5px_5px_0px_#111111]" }
   ];
 
   return (
@@ -23,7 +28,7 @@ export function Statistics() {
               className={`${stat.color} border-3.5 border-black rounded-3xl p-5 sm:p-6 ${stat.shadow} hover:-translate-y-1 transition-all flex flex-col justify-between`}
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="w-9 h-9 rounded-xl bg-black text-yellow border-2 border-white flex items-center justify-center font-display font-black text-xs shadow-[2px_2px_0px_#111111]">
+                <span className="w-9 h-9 rounded-xl bg-blue text-white border-2 border-black flex items-center justify-center font-display font-black text-xs shadow-[2px_2px_0px_#111111]">
                   0{i + 1}
                 </span>
                 <span className="text-[10px] font-mono uppercase font-black tracking-widest opacity-80">
@@ -96,7 +101,7 @@ export function BuildWithPassion() {
           </div>
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="bg-black text-yellow px-2 py-0.5 rounded text-[10px] font-mono font-black uppercase">
+              <span className="bg-blue text-white px-2 py-0.5 rounded text-[10px] font-mono font-black uppercase border border-black shadow-[1px_1px_0px_#111111]">
                 Digital Engineering · 情報開発
               </span>
             </div>

@@ -39,7 +39,7 @@ export function AboutEvent() {
             {/* Dedicated Food Preparation Disclaimer Card */}
             <div className="bg-yellow border-3.5 border-black rounded-2xl p-5 sm:p-6 shadow-[6px_6px_0px_#111111] w-full mb-6 relative overflow-hidden">
               <div className="flex items-center gap-2.5 mb-2.5">
-                <div className="w-9 h-9 rounded-xl bg-black text-yellow border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#FFFFFF]">
+                <div className="w-9 h-9 rounded-xl bg-blue text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#111111]">
                   <ShieldCheck size={20} />
                 </div>
                 <h4 className="font-display font-black text-base sm:text-lg text-black uppercase tracking-tight">
@@ -53,7 +53,7 @@ export function AboutEvent() {
 
             {/* Educational Goal Metric Badges */}
             <div className="flex flex-wrap items-center gap-3">
-              <div className="bg-black text-yellow border-2.5 border-black px-3.5 py-1.5 rounded-xl shadow-[3px_3px_0px_#FFD21F] text-xs font-display font-black uppercase">
+              <div className="bg-blue text-white border-2.5 border-black px-3.5 py-1.5 rounded-xl shadow-[3px_3px_0px_#111111] text-xs font-display font-black uppercase">
                 ✦ 100% Student Authored (生徒制作)
               </div>
               <div className="bg-green text-white border-2.5 border-black px-3.5 py-1.5 rounded-xl shadow-[3px_3px_0px_#111111] text-xs font-display font-black uppercase">
@@ -88,11 +88,11 @@ export function AboutEvent() {
                   </div>
                 </div>
                 
-                <div className="p-4 bg-black text-white border-t-3 border-black flex items-center justify-between">
+                <div className="p-4 bg-blue text-white border-t-3 border-black flex items-center justify-between">
                   <span className="font-display font-black text-xs uppercase tracking-wider text-yellow">
                     Home Kitchen · Class 7 Tulip
                   </span>
-                  <span className="text-xs font-mono font-bold text-white/80">
+                  <span className="text-xs font-mono font-bold text-white/90">
                     Handmade with Care (手作りの味)
                   </span>
                 </div>

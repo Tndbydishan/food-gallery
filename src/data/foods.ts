@@ -430,6 +430,158 @@ export const foods: FoodItem[] = [
       imperial: { weight: 3.5 }
     },
     homeScienceInsight: "The thickening agent is cornstarch (in the custard powder), which undergoes gelatinization when heated with milk, trapping liquid in a starch network."
+  },
+  {
+    id: "mango-kulfi",
+    slug: "mango-kulfi",
+    name: "Mango Shahi Kulfi",
+    category: "dessert",
+    image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&q=80&w=800",
+    description: "Traditional slow-simmered condensed milk frozen dessert infused with alphonso mango pulp, cardamom, and toasted pistachios.",
+    dietary: ["Vegetarian", "Gluten-Free"],
+    ingredients: ["Whole Milk", "Condensed Milk", "Mango Pulp", "Cardamom Powder", "Pistachio", "Saffron", "Sugar"],
+    allergens: {
+      contains: ["Milk", "Tree Nuts"],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 175,
+      protein: 4.5,
+      carbohydrates: 24.0,
+      fat: 6.8,
+      saturatedFat: 4.2,
+      fiber: 0.8,
+      sugars: 22.5,
+      sodiumMg: 60
+    },
+    serving: {
+      size: "1 kulfi stick (100g)",
+      yield: "8 portions"
+    },
+    preparation: {
+      time: "45 min + freezing",
+      difficulty: "Medium"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Prolonged low-heat simmering evaporates water and concentrates milk solids (casein and lactose), which depresses the freezing point to form fine micro-crystalline structures rather than coarse ice shards."
+  },
+  {
+    id: "chocolate-brownie",
+    slug: "chocolate-brownie",
+    name: "Fudgy Chocolate Brownie",
+    category: "dessert",
+    image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=800",
+    description: "Decadent, rich chocolate fudge squares with a delicate shiny crinkle crust and a dense, melt-in-the-mouth cocoa crumb.",
+    dietary: ["Vegetarian"],
+    ingredients: ["Dark Chocolate (55%)", "Butter", "Eggs", "Caster Sugar", "Cocoa Powder", "Wheat Flour", "Vanilla Extract", "Pinch of Salt"],
+    allergens: {
+      contains: ["Wheat", "Gluten", "Egg", "Milk", "Soy"],
+      mayContain: ["Tree Nuts"]
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 380,
+      protein: 5.2,
+      carbohydrates: 48.0,
+      fat: 19.5,
+      saturatedFat: 11.5,
+      fiber: 3.8,
+      sugars: 36.0,
+      sodiumMg: 110
+    },
+    serving: {
+      size: "1 square (70g)",
+      yield: "12 squares"
+    },
+    preparation: {
+      time: "35 min",
+      difficulty: "Medium"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Vigorously whipping warm eggs and sugar creates a delicate dissolved sucrose foam that rises to the surface during baking to produce the iconic shiny crinkle top, while the high fat-to-flour ratio prevents gluten development."
+  },
+  {
+    id: "gulab-jamun",
+    slug: "gulab-jamun",
+    name: "Gulab Jamun in Rose Syrup",
+    category: "dessert",
+    image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800",
+    description: "Golden-fried milk solid dumplings steeped in warm, aromatic rose and cardamom scented sugar syrup.",
+    dietary: ["Vegetarian"],
+    ingredients: ["Mawa (Khoya)", "Paneer (Cottage Cheese)", "Wheat Flour", "Ghee / Cooking Oil", "Sugar", "Rose Water", "Cardamom", "Saffron"],
+    allergens: {
+      contains: ["Milk", "Wheat", "Gluten"],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g (2 pcs with syrup)",
+      energyKcal: 310,
+      protein: 6.0,
+      carbohydrates: 52.0,
+      fat: 9.5,
+      saturatedFat: 5.0,
+      fiber: 0.5,
+      sugars: 46.0,
+      sodiumMg: 70
+    },
+    serving: {
+      size: "2 pieces (100g)",
+      yield: "10 portions"
+    },
+    preparation: {
+      time: "40 min",
+      difficulty: "Hard"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Frying at a controlled low-medium temperature (140°C–150°C) allows heat to gently coagulate the milk proteins without blistering the surface; upon soaking, osmotic pressure draws the warm sugar syrup deep into the porous sponge."
+  },
+  {
+    id: "strawberry-jelly",
+    slug: "strawberry-jelly",
+    name: "Layered Strawberry Jelly",
+    category: "dessert",
+    image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=800",
+    description: "Vibrant ruby-red strawberry fruit gelatin cups layered with smooth sweet vanilla cream and fresh sliced berries.",
+    dietary: ["Vegetarian", "Low Fat"],
+    ingredients: ["Strawberry Juice", "Vegetable Agar-Agar", "Sugar", "Fresh Strawberries", "Light Milk Cream", "Citric Acid"],
+    allergens: {
+      contains: ["Milk"],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 85,
+      protein: 1.8,
+      carbohydrates: 18.0,
+      fat: 1.1,
+      saturatedFat: 0.6,
+      fiber: 1.4,
+      sugars: 16.0,
+      sodiumMg: 20
+    },
+    serving: {
+      size: "1 cup (120g)",
+      yield: "6 portions"
+    },
+    preparation: {
+      time: "25 min + chilling",
+      difficulty: "Easy"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Agar-agar is a plant-based polysaccharide derived from red algae that exhibits hysteresis: it boils at 85°C and sets at 32°C–40°C into a firm, thermo-stable gel matrix that stays set even at ambient school exhibition temperatures."
   }
 ];
 

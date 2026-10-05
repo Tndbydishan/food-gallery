@@ -36,7 +36,7 @@ export function RetroTicket({
       {/* Content */}
       <div className="px-3 flex flex-col">
         <div className="flex items-center gap-2 mb-1">
-          <span className="text-[9px] font-mono font-black tracking-widest uppercase bg-black text-white px-1.5 py-0.2 rounded">
+          <span className="text-[9px] font-mono font-black tracking-widest uppercase bg-blue text-white px-1.5 py-0.2 rounded border border-black shadow-[1px_1px_0px_#111111]">
             {badge}
           </span>
           <span className="text-[10px] font-mono font-bold opacity-75">

@@ -25,7 +25,7 @@ export function JapaneseSeal({
 
   const colorMap = {
     red: 'border-red-japanese text-red-japanese bg-red/10',
-    black: 'border-black text-black bg-black/10',
+    black: 'border-blue text-blue bg-blue/10',
     yellow: 'border-yellow text-yellow bg-yellow/20',
   };
 

@@ -49,7 +49,7 @@ export function FoodMenu() {
             kanjiBadge="献立一覧"
             badge="Official Festival Menu"
             badgeVariant="yellow"
-            title="Taste The Science: 9 Curated Dishes (展示料理)"
+            title={`Taste The Science: ${foods.length} Curated Dishes (展示料理)`}
             description="Examine full nutritional breakdowns, biochemical transformations, allergen notices, and home preparation notes for every exhibited dish."
             className="mb-5"
           />
@@ -74,7 +74,7 @@ export function FoodMenu() {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-4 py-2.5 rounded-xl font-display font-black text-xs sm:text-sm border-3 border-black transition-all cursor-pointer whitespace-nowrap active:translate-x-[2px] active:translate-y-[2px] active:shadow-none flex items-center gap-1.5 ${
                     isActive 
-                      ? 'bg-black text-yellow shadow-[4px_4px_0px_#FFD21F] -translate-y-0.5' 
+                      ? 'bg-blue text-white shadow-[4px_4px_0px_#111111] -translate-y-0.5' 
                       : 'bg-white text-black hover:bg-yellow shadow-[3px_3px_0px_#111111]'
                   }`}
                 >

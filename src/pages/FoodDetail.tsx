@@ -100,8 +100,8 @@ export function FoodDetail() {
               </div>
 
               {/* Price-tag Style Calorie Overlay */}
-              <div className="absolute bottom-3 right-3 bg-black text-yellow px-2.5 py-1 rounded-lg text-xs font-mono font-black flex items-center gap-1 border-2 border-white shadow-[2px_2px_0px_#FFD21F]">
-                <Flame size={14} className="text-red fill-red" />
+              <div className="absolute bottom-3 right-3 bg-red text-white px-2.5 py-1 rounded-lg text-xs font-mono font-black flex items-center gap-1 border-2 border-black shadow-[2px_2px_0px_#111111]">
+                <Flame size={14} className="text-yellow fill-yellow" />
                 <span>{food.nutrition.energyKcal} kcal</span>
               </div>
             </div>
@@ -195,8 +195,8 @@ export function FoodDetail() {
               </div>
             </div>
 
-            {/* Home Science Insight Box (Deep Black & Poster Yellow) */}
-            <div className="bg-deep-black text-white border-3.5 border-black rounded-3xl p-6 sm:p-8 shadow-[8px_8px_0px_#FFD21F] relative overflow-hidden">
+            {/* Home Science Insight Box (Comic Cobalt Blue & Yellow) */}
+            <div className="bg-blue text-white border-3.5 border-black rounded-3xl p-6 sm:p-8 shadow-[6px_6px_0px_#111111] relative overflow-hidden">
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-3 text-yellow">
                   <Beaker size={22} />
@@ -207,7 +207,7 @@ export function FoodDetail() {
                 <h3 className="text-xl sm:text-2xl font-display font-black text-white mb-3">
                   The Chemical & Culinary Reaction Behind {food.name}
                 </h3>
-                <p className="text-sm sm:text-base text-white/90 leading-relaxed font-medium">
+                <p className="text-sm sm:text-base text-white/95 leading-relaxed font-medium">
                   {food.homeScienceInsight}
                 </p>
               </div>

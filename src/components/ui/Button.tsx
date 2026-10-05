@@ -20,11 +20,10 @@ export function Button({
         {
           /* Color Variants with Physical Offset Shadows */
           'bg-primary text-black hover:bg-yellow shadow-[5px_5px_0px_#111111] hover:shadow-[3px_3px_0px_#111111]': variant === 'primary',
-          'bg-black text-yellow hover:bg-[#222222] shadow-[5px_5px_0px_#111111] hover:shadow-[3px_3px_0px_#111111]': variant === 'secondary',
+          'bg-blue text-white hover:bg-blue-retro shadow-[5px_5px_0px_#111111] hover:shadow-[3px_3px_0px_#111111]': variant === 'secondary' || variant === 'blue',
           'bg-red text-white hover:bg-red-japanese shadow-[5px_5px_0px_#111111] hover:shadow-[3px_3px_0px_#111111]': variant === 'red',
           'bg-white text-black hover:bg-offwhite shadow-[5px_5px_0px_#111111] hover:shadow-[3px_3px_0px_#111111]': variant === 'outline',
           'bg-transparent border-transparent hover:bg-primary/20 text-black shadow-none': variant === 'ghost',
-          'bg-blue text-white hover:bg-blue-retro shadow-[5px_5px_0px_#111111] hover:shadow-[3px_3px_0px_#111111]': variant === 'blue',
           'bg-green text-white hover:bg-green-deep shadow-[5px_5px_0px_#111111] hover:shadow-[3px_3px_0px_#111111]': variant === 'green',
 
           /* Sizes with controlled geometry */

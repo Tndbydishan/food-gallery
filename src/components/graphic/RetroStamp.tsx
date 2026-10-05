@@ -17,7 +17,7 @@ export function RetroStamp({
 }: RetroStampProps) {
   const styles = {
     red: 'border-red-japanese text-red-japanese bg-red/5 shadow-[3px_3px_0px_#D92B20]',
-    black: 'border-black text-black bg-black/5 shadow-[3px_3px_0px_#111111]',
+    black: 'border-blue text-blue bg-blue/10 shadow-[3px_3px_0px_#1769C2]',
     yellow: 'border-yellow text-yellow-bright bg-yellow/10 shadow-[3px_3px_0px_#FFD21F]',
     blue: 'border-blue text-blue bg-blue/5 shadow-[3px_3px_0px_#1769C2]',
   };

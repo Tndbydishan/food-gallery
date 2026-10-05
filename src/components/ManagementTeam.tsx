@@ -4,10 +4,12 @@ import { teamGroups } from '../data/team';
 import { JapaneseSeal, NumberLabel, Halftone } from './graphic';
 
 export function ManagementTeam() {
+  const isDualRole = (name: string) => ['Rahnuma', 'Muntaha', 'Erin', 'Arshee'].includes(name);
+
   return (
-    <section id="team" className="py-20 md:py-28 bg-deep-black text-white border-b-4 border-black relative overflow-hidden">
+    <section id="team" className="py-20 md:py-28 bg-offwhite text-black border-b-4 border-black relative overflow-hidden">
       
-      <Halftone color="yellow" opacity={0.04} />
+      <Halftone color="black" opacity={0.04} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         
@@ -18,34 +20,36 @@ export function ManagementTeam() {
             kanjiBadge="生徒名簿"
             badge="The Cohort"
             badgeVariant="yellow"
-            title="Meet The Student Contributors (班員紹介)"
+            title="Meet The Student Contributors (生徒名簿)"
             description="Class 7 Section Tulip students divided into specialized squads to execute recipe research, culinary preparation, hygiene monitoring, and physical presentation."
-            theme="dark"
+            theme="light"
           />
         </div>
 
-        {/* Squad 1: Decoration & Presentation Squad (Yellow Theme) */}
+        {/* Squad 1: Decoration & Presentation Squad (Yellow & Blue Theme) */}
         <div className="mb-16">
-          <div className="flex items-center gap-3 mb-6 pb-3 border-b-3 border-yellow">
-            <span className="w-10 h-10 rounded-xl bg-primary text-black border-2 border-black flex items-center justify-center font-display font-black text-base shadow-[3px_3px_0px_#FFFFFF]">
+          <div className="flex items-center gap-3 mb-6 pb-3 border-b-3 border-black">
+            <span className="w-10 h-10 rounded-xl bg-primary text-black border-2.5 border-black flex items-center justify-center font-display font-black text-base shadow-[3px_3px_0px_#111111]">
               A
             </span>
             <div>
-              <h3 className="font-display font-black text-xl sm:text-2xl text-yellow flex items-center gap-2">
+              <h3 className="font-display font-black text-xl sm:text-2xl text-black flex items-center gap-2">
                 <span>Decoration & Presentation Squad</span>
-                <span className="text-xs font-mono font-bold bg-white text-black px-2 py-0.5 rounded">装飾展示班</span>
+                <span className="text-xs font-mono font-black bg-blue text-white px-2 py-0.5 rounded border border-black shadow-[1px_1px_0px_#111111]">
+                  装飾展示班
+                </span>
               </h3>
-              <p className="text-xs font-mono uppercase text-white/70 font-bold">
+              <p className="text-xs font-mono uppercase text-black/70 font-bold">
                 Classroom layout, visual aesthetics, signage & guest reception
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6">
             {teamGroups.decoration.map((member) => (
               <div 
                 key={member.id} 
-                className="bg-white text-black border-3 border-black rounded-2xl p-4 shadow-[5px_5px_0px_#FFD21F] hover:shadow-[7px_7px_0px_#FFD21F] hover:-translate-y-1 transition-all flex flex-col items-center text-center group"
+                className="bg-white text-black border-3 border-black rounded-2xl p-4 shadow-[4px_4px_0px_#111111] hover:shadow-[7px_7px_0px_#1769C2] hover:-translate-y-1 transition-all flex flex-col items-center text-center group"
               >
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-primary border-2.5 border-black flex items-center justify-center mb-3 shadow-[3px_3px_0px_#111111] group-hover:scale-105 transition-transform">
                   <span className="font-display font-black text-xl sm:text-2xl text-black">
@@ -58,33 +62,40 @@ export function ManagementTeam() {
                 <span className="text-[10px] font-mono font-black text-black/60 uppercase">
                   Class 7 Tulip
                 </span>
+                {isDualRole(member.name) && (
+                  <span className="mt-1.5 text-[9px] font-mono font-black bg-yellow text-black px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#111111]">
+                    Food & Deco
+                  </span>
+                )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Squad 2: Food Preparation & Nutrition Squad (Vermillion Red & Emerald Theme) */}
+        {/* Squad 2: Food Preparation & Nutrition Squad (Red & Green Theme) */}
         <div>
-          <div className="flex items-center gap-3 mb-6 pb-3 border-b-3 border-red">
-            <span className="w-10 h-10 rounded-xl bg-red text-white border-2 border-black flex items-center justify-center font-display font-black text-base shadow-[3px_3px_0px_#FFFFFF]">
+          <div className="flex items-center gap-3 mb-6 pb-3 border-b-3 border-black">
+            <span className="w-10 h-10 rounded-xl bg-red text-white border-2.5 border-black flex items-center justify-center font-display font-black text-base shadow-[3px_3px_0px_#111111]">
               B
             </span>
             <div>
-              <h3 className="font-display font-black text-xl sm:text-2xl text-red flex items-center gap-2">
+              <h3 className="font-display font-black text-xl sm:text-2xl text-black flex items-center gap-2">
                 <span>Food Preparation & Nutrition Squad</span>
-                <span className="text-xs font-mono font-bold bg-yellow text-black px-2 py-0.5 rounded">調理栄養班</span>
+                <span className="text-xs font-mono font-black bg-red text-white px-2 py-0.5 rounded border border-black shadow-[1px_1px_0px_#111111]">
+                  調理栄養班
+                </span>
               </h3>
-              <p className="text-xs font-mono uppercase text-white/70 font-bold">
+              <p className="text-xs font-mono uppercase text-black/70 font-bold">
                 Home culinary execution, recipe ratios, macronutrient calculations & hygiene
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6">
             {teamGroups.foodPrep.map((member) => (
               <div 
                 key={member.id} 
-                className="bg-white text-black border-3 border-black rounded-2xl p-4 shadow-[5px_5px_0px_#F04424] hover:shadow-[7px_7px_0px_#F04424] hover:-translate-y-1 transition-all flex flex-col items-center text-center group"
+                className="bg-white text-black border-3 border-black rounded-2xl p-4 shadow-[4px_4px_0px_#111111] hover:shadow-[7px_7px_0px_#F04424] hover:-translate-y-1 transition-all flex flex-col items-center text-center group"
               >
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-red text-white border-2.5 border-black flex items-center justify-center mb-3 shadow-[3px_3px_0px_#111111] group-hover:scale-105 transition-transform">
                   <span className="font-display font-black text-xl sm:text-2xl text-yellow">
@@ -97,6 +108,11 @@ export function ManagementTeam() {
                 <span className="text-[10px] font-mono font-black text-black/60 uppercase">
                   Class 7 Tulip
                 </span>
+                {isDualRole(member.name) && (
+                  <span className="mt-1.5 text-[9px] font-mono font-black bg-yellow text-black px-1.5 py-0.5 rounded border border-black shadow-[1px_1px_0px_#111111]">
+                    Food & Deco
+                  </span>
+                )}
               </div>
             ))}
           </div>

@@ -17,7 +17,7 @@ export function Sticker({
     yellow: 'bg-primary text-black border-black',
     red: 'bg-red text-white border-black',
     blue: 'bg-blue text-white border-black',
-    black: 'bg-black text-yellow border-black',
+    black: 'bg-blue text-white border-black',
     green: 'bg-green text-white border-black',
     white: 'bg-white text-black border-black',
   };

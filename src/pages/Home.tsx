@@ -7,13 +7,14 @@ import { AboutEvent } from '../components/AboutEvent';
 import { ManagementTeam } from '../components/ManagementTeam';
 import { Statistics, BuildWithPassion } from '../components/BuildWithPassion';
 import { Marquee } from '../components/ui/Marquee';
+import { foods } from '../data/foods';
 
 export function Home() {
   return (
     <main className="bg-offwhite min-h-screen">
       <Hero />
       
-      {/* Primary Hero Divider Marquee (Black Strip with Safety Yellow Typography) */}
+      {/* Primary Hero Divider Marquee (Poster Yellow Strip with Black Typography) */}
       <Marquee 
         items={[
           "DISCOVER · 発見", 
@@ -24,14 +25,14 @@ export function Home() {
           "NUTRITION · 栄養", 
           "TEAMWORK · 協調"
         ]} 
-        variant="black" 
+        variant="yellow" 
         speed="normal" 
         separator="✦"
       />
 
       <EventHighlights />
 
-      {/* High-Contrast Red Transition Marquee */}
+      {/* Comic Pop Red Transition Marquee */}
       <Marquee 
         items={[
           "CLASSROOM BLUEPRINT", 
@@ -54,7 +55,7 @@ export function Home() {
           "PRESENTED AT SCHOOL · 学校展示", 
           "SPSC CLASS 7 TULIP · 第7学年", 
           "PURE HOME SCIENCE PROJECT", 
-          "9 EXHIBITED DISHES · 全9品", 
+          `${foods.length} EXHIBITED DISHES · 全${foods.length}品`, 
           "HYGIENE VERIFIED · 衛生管理"
         ]} 
         variant="ticker" 

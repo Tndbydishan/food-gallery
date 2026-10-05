@@ -52,8 +52,8 @@ export function FoodCard({ food }: FoodCardProps) {
         </div>
 
         {/* Calorie Tag Overlay Styled like a Japanese Retail Price Tag */}
-        <div className="absolute bottom-2.5 right-2.5 bg-black text-yellow px-2.5 py-1 rounded-lg text-xs font-mono font-black flex items-center gap-1 border-2 border-white shadow-[2px_2px_0px_#FFD21F]">
-          <Flame size={13} className="text-red fill-red" />
+        <div className="absolute bottom-2.5 right-2.5 bg-red text-white px-2.5 py-1 rounded-lg text-xs font-mono font-black flex items-center gap-1 border-2 border-black shadow-[2px_2px_0px_#111111]">
+          <Flame size={13} className="text-yellow fill-yellow" />
           <span>{food.nutrition.energyKcal} kcal</span>
         </div>
       </div>

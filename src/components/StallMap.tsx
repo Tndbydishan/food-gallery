@@ -134,7 +134,7 @@ export function StallMap() {
                   </div>
                   
                   {/* Stall Number Tag */}
-                  <div className="absolute -top-2.5 -left-2.5 bg-black text-yellow px-1.5 py-0.2 rounded text-[10px] font-mono font-black border-2 border-white shadow-[1px_1px_0px_#111111]">
+                  <div className="absolute -top-2.5 -left-2.5 bg-blue text-white px-1.5 py-0.2 rounded text-[10px] font-mono font-black border-2 border-black shadow-[1px_1px_0px_#111111]">
                     {stall.stallNum}
                   </div>
 
