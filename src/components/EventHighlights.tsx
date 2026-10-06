@@ -21,10 +21,10 @@ export function EventHighlights() {
           <SectionHeading 
             number="01"
             kanjiBadge="五大原則"
-            badge="Curricular Pillars"
+            badge="Curricular Sections"
             badgeVariant="yellow"
-            title="Beyond Just Food: The 5 Scientific Pillars (五大原則)"
-            description="Our festival bridges theoretical chemistry, macronutrient calculations, food hygiene protocols, and aesthetic visual plating into one coherent student exhibition."
+            title="Beyond Just Food: The 5 Core Sections (五大原則)"
+            description="Our festival bridges Food Chemistry, nutrient calculations, food hygiene maintenance, and aesthetic visual plating into one coherent student exhibition."
             theme="light"
           />
         </div>
@@ -42,12 +42,12 @@ export function EventHighlights() {
                 </span>
               </div>
 
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-white mb-3 tracking-tight">
-                Culinary Science & Heat Transformations
+              <h3 className="font-headline font-black text-xl sm:text-2xl md:text-3xl text-white mb-3 tracking-[0.035em] leading-snug">
+                Culinary Skills & Heat Transfers
               </h3>
               
               <p className="text-white/90 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Every recipe demonstrates essential chemical principles: starch gelatinization in custards, starch retrogradation in cooled fried rice, the Maillard reaction in golden fried chicken, and acid-base oxidation inhibition in fresh fruit salads.
+                Every recipe demonstrates essential chemical principles: starch gelatinization in custards, starch retrogradation in cooled fried rice, the Maillard reaction in golden fried chicken, and acid-base balance in fresh fruit salads.
               </p>
             </div>
 
@@ -55,11 +55,11 @@ export function EventHighlights() {
             <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border-3.5 border-black bg-white mt-2 shadow-[4px_4px_0px_#111111]">
               <img 
                 src={scienceImage} 
-                alt="Culinary science ingredients and kitchen laboratory preparation"
+                alt="Culinary recipe ingredients and kitchen items preparation"
                 className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
               />
               <div className="absolute bottom-3 left-3 bg-yellow text-black px-3 py-1 rounded-lg text-xs font-mono font-black border-2 border-black shadow-[2px_2px_0px_#111111]">
-                🧪 Laboratory Analysis · Section Tulip
+                🧪 Nutrition Analysis · Section Tulip
               </div>
             </div>
           </div>
@@ -70,16 +70,16 @@ export function EventHighlights() {
               <div className="flex items-center justify-between mb-4">
                 <NumberLabel number="02" label="NUTRITION" variant="black" size="sm" />
                 <span className="font-mono text-xs font-black text-white uppercase tracking-wider bg-red px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0px_#111111]">
-                  栄養計算 · Macros
+                  栄養計算
                 </span>
               </div>
 
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-black mb-3 tracking-tight">
-                Nutritional Literacy & Calorie Calculations
+              <h3 className="font-headline font-black text-xl sm:text-2xl md:text-3xl text-black mb-3 tracking-[0.035em] leading-snug">
+                Nutritional & Calorie Calculations
               </h3>
               
               <p className="text-black/85 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Students tracked macronutrients (proteins, carbohydrates, dietary fiber, fats) and calculated energy values per serving basis across every exhibited dish.
+                Students tracked nutrients (proteins, carbohydrates, dietary fiber, fats) and calculated energy values per serving basis across every exhibited dish.
               </p>
             </div>
 
@@ -109,12 +109,12 @@ export function EventHighlights() {
                 </span>
               </div>
 
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-white mb-3 tracking-tight">
-                Food Hygiene, Allergens & Transit Safety
+              <h3 className="font-headline font-black text-xl sm:text-2xl md:text-3xl text-white mb-3 tracking-[0.035em] leading-snug">
+                Food Hygiene, Allergens & Food Safety
               </h3>
               
               <p className="text-white/90 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Thorough protocol on cross-contamination prevention, clear allergen disclosures (gluten, dairy, eggs), and sterile container packaging for transit from home to school.
+                Thorough protocol on cross-contamination prevention, clear allergen (gluten, dairy, eggs), and sterile container packaging for delivery from home to school.
               </p>
             </div>
 
@@ -136,12 +136,12 @@ export function EventHighlights() {
                 </span>
               </div>
 
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-white mb-3 tracking-tight">
+              <h3 className="font-headline font-black text-xl sm:text-2xl md:text-3xl text-white mb-3 tracking-[0.035em] leading-snug">
                 Aesthetic Plating & Visual Presentation
               </h3>
               
               <p className="text-white/90 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Culinary arts honor the eyes first. Section Tulip students practiced color theory, textural contrast, uniform knife cuts, and balanced garnishing on every stall table.
+                Culinary skills honor the eyes first. Section Tulip students practiced color theory, textural contrast, knife cuts, and balanced Servings on every stall table.
               </p>
             </div>
 
@@ -167,7 +167,7 @@ export function EventHighlights() {
                   生徒共同開発 · Class 7 Section Tulip
                 </span>
               </div>
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-black mb-2 tracking-tight">
+              <h3 className="font-headline font-black text-xl sm:text-2xl md:text-3xl text-black mb-2 tracking-[0.035em] leading-snug">
                 Student Teamwork & Digital Collaboration (共同制作)
               </h3>
               <p className="text-black/80 text-sm sm:text-base leading-relaxed font-medium">

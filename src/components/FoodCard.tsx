@@ -63,7 +63,7 @@ export function FoodCard({ food }: FoodCardProps) {
         
         {/* Dish Title */}
         <div className="flex items-start justify-between gap-2 mb-1.5">
-          <h3 className="text-xl sm:text-2xl font-display font-black text-black group-hover:text-red transition-colors tracking-tight line-clamp-1">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-headline font-black text-black group-hover:text-red transition-colors tracking-[0.03em] leading-snug line-clamp-1">
             {food.name}
           </h3>
         </div>

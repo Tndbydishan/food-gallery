@@ -50,7 +50,7 @@ export function FoodMenu() {
             badge="Official Festival Menu"
             badgeVariant="yellow"
             title={`Taste The Science: ${foods.length} Curated Dishes (展示料理)`}
-            description="Examine full nutritional breakdowns, biochemical transformations, allergen notices, and home preparation notes for every exhibited dish."
+            description="Examine full nutritional breakdowns, allergen notices, and home preparation notes for every exhibited dish."
             className="mb-5"
           />
 

@@ -52,6 +52,42 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/custom/Custom-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/custom/Custom-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Retro Star';
+  src: url('/fonts/custom/RetroStar.ttf') format('truetype'),
+       url('/fonts/custom/Retro-Star-DEMO.ttf') format('truetype'),
+       url('/fonts/custom/Retro Star DEMO.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RetroStar';
+  src: url('/fonts/custom/RetroStar.ttf') format('truetype'),
+       url('/fonts/custom/Retro-Star-DEMO.ttf') format('truetype'),
+       url('/fonts/custom/Retro Star DEMO.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ==========================================================================
    02. DESIGN TOKENS (JAPANESE RETRO × NEO-BRUTALIST PALETTE)
    Strictly Saturated & Bold — Zero Pastels
@@ -149,6 +185,9 @@
   --font-display: "PrimaryDisplay", "Bricolage Grotesque", "Plus Jakarta Sans", sans-serif;
   --font-body: "SecondaryBody", "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-custom: "Retro Star", "RetroStar", "CustomFont", sans-serif;
+  --font-retrostar: "Retro Star", "RetroStar", "PrimaryDisplay", sans-serif;
+  --font-headline: "Retro Star", "RetroStar", "PrimaryDisplay", sans-serif;
 }
 
 /* ==========================================================================
@@ -165,9 +204,9 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+    font-family: "Retro Star", "RetroStar", var(--font-display);
     color: var(--color-black);
-    letter-spacing: -0.025em;
+    letter-spacing: 0.035em;
     font-weight: 800;
   }
 
@@ -175,6 +214,21 @@
     background-color: var(--color-primary);
     color: var(--color-black);
   }
+}
+
+/* Specific Headline Utility for Sub-pages & Sections with Optical Spacing for Retro Star */
+.font-headline,
+.font-retrostar {
+  font-family: "Retro Star", "RetroStar", "PrimaryDisplay", sans-serif !important;
+  letter-spacing: 0.035em;
+  text-rendering: optimizeLegibility;
+}
+
+/* Uppercase / Display badges with Retro Star get slightly wider vintage spacing */
+.font-headline.uppercase,
+.uppercase.font-headline,
+.font-retrostar.uppercase {
+  letter-spacing: 0.055em;
 }
 
 /* ==========================================================================

@@ -414,7 +414,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
               </span>
             </div>
 
-            <h3 className="font-display font-black text-base sm:text-lg md:text-xl text-black tracking-tight leading-tight line-clamp-1">
+            <h3 className="font-headline font-black text-base sm:text-lg md:text-xl text-black tracking-[0.035em] leading-tight line-clamp-1">
               {currentStep.title}
             </h3>
             

@@ -100,7 +100,7 @@ export function FoodModal({ food, onClose, system, onSystemToggle }: FoodModalPr
           <img src={food.image} alt={food.name} className="w-full h-full object-cover" />
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/50 to-transparent"></div>
           <div className="absolute bottom-4 left-4 right-4 text-white">
-            <h2 className="text-3xl md:text-4xl font-display leading-none mb-2">{food.variants ? activeData.name : food.name}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-headline font-black leading-tight tracking-[0.035em] mb-2">{food.variants ? activeData.name : food.name}</h2>
             <div className="flex gap-2">
               <Badge variant="white" className="text-brand-text">{food.category}</Badge>
             </div>

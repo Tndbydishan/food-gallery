@@ -67,12 +67,12 @@ export function BuildWithPassion() {
           kanjiBadge="情熱協調"
           badge="Curiosity & Learning"
           badgeVariant="yellow"
-          title="Built With Passion, Science & Curiosity (探求と協力)"
+          title="Made by Passion, Science & Curiosity (探求と協力)"
           className="mb-6"
         />
         
         <p className="text-base sm:text-lg md:text-xl text-black font-medium leading-relaxed mb-10 max-w-2xl mx-auto [text-wrap:pretty]">
-          Every recipe ratio, display label, and nutritional estimate was crafted with scientific inquiry and enthusiastic teamwork by Class 7 Section Tulip.
+          Every recipe script, display label, and nutritional estimate was crafted with scientific Calculation & teamwork by Class 7 Section Tulip.
         </p>
 
         {/* Neo-Brutalist Japanese Pop Equation Blocks */}

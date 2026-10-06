@@ -29,10 +29,10 @@ export function AboutEvent() {
             
             <div className="space-y-4 text-black text-base md:text-lg leading-relaxed font-medium mb-8">
               <p>
-                This digital showcase presents the Home Science Food Festival organized by Class 7, Section Tulip of Southpoint School and College. The initiative merges hands-on food preparation, nutritional calculations, culinary biochemistry, teamwork, and food hygiene into one shared learning milestone.
+                This digital showcase presents the Home Science Food Festival organized by Class 7, Section Tulip of Southpoint School and College. The initiative merges hands-on food preparation, nutritional calculations, culinary skills, teamwork, and food hygiene into one shared learning session.
               </p>
               <p>
-                Rather than treating cooking as mere routine, our students explored why foods react the way they do: how marinades tenderize proteins, how gentle heat prevents custard curdling, and how proper cooling creates superior fried rice grains through starch retrogradation.
+                Rather than treating cooking as mere routine, our students explored why foods react the way they do: how marination tenders meats, how gentle heat prevents custard curdling, and how proper cooling creates superior fried rice grains through starch retrogradation.
               </p>
             </div>
 
@@ -42,7 +42,7 @@ export function AboutEvent() {
                 <div className="w-9 h-9 rounded-xl bg-blue text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_#111111]">
                   <ShieldCheck size={20} />
                 </div>
-                <h4 className="font-display font-black text-base sm:text-lg text-black uppercase tracking-tight">
+                <h4 className="font-display font-black text-base sm:text-lg text-black uppercase tracking-wide">
                   About The Food Preparation (調理に関する重要事項)
                 </h4>
               </div>
@@ -54,13 +54,13 @@ export function AboutEvent() {
             {/* Educational Goal Metric Badges */}
             <div className="flex flex-wrap items-center gap-3">
               <div className="bg-blue text-white border-2.5 border-black px-3.5 py-1.5 rounded-xl shadow-[3px_3px_0px_#111111] text-xs font-display font-black uppercase">
-                ✦ 100% Student Authored (生徒制作)
+                ✦ 100% Student Made (生徒制作)
               </div>
               <div className="bg-green text-white border-2.5 border-black px-3.5 py-1.5 rounded-xl shadow-[3px_3px_0px_#111111] text-xs font-display font-black uppercase">
-                ✦ Hygiene Verified (衛生検証)
+                ✦ Hygiene Maintained (衛生検証)
               </div>
               <div className="bg-red text-white border-2.5 border-black px-3.5 py-1.5 rounded-xl shadow-[3px_3px_0px_#111111] text-xs font-display font-black uppercase">
-                ✦ Macronutrient Tracked (栄養計算)
+                ✦ Nutrition calculated (栄養計算)
               </div>
             </div>
 

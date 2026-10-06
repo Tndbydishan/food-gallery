@@ -22,7 +22,7 @@ export function Footer() {
     { id: 'home', label: 'Home', kanji: '起点' },
     { id: 'menu', label: 'Menu', kanji: '料理' },
     { id: 'map', label: 'Map', kanji: '配置' },
-    { id: 'highlights', label: 'Pillars', kanji: '科学' },
+    { id: 'highlights', label: 'Highlights', kanji: '科学' },
     { id: 'about', label: 'About', kanji: '概要' },
     { id: 'team', label: 'Team', kanji: '生徒' },
   ];
@@ -55,8 +55,8 @@ export function Footer() {
               </span>
             </div>
 
-            <h3 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">
-              Southpoint School and College
+            <h3 className="font-headline font-black text-2xl sm:text-3xl md:text-4xl text-white tracking-[0.035em] leading-tight">
+              South Point School and College
             </h3>
             
             <p className="font-mono text-sm text-yellow font-black uppercase tracking-wider -mt-1">

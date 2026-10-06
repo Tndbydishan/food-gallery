@@ -8,8 +8,8 @@ import { scrollToElement, scrollToTop } from '../utils/lenis';
 const NAV_LINKS = [
   { num: '01', label: 'Home', kanji: '起点', href: '/#home', target: '#home' },
   { num: '02', label: 'Menu', kanji: '料理', href: '/#menu', target: '#menu' },
-  { num: '03', label: 'Map', kanji: '案内', href: '/#map', target: '#map' },
-  { num: '04', label: 'Pillars', kanji: '科学', href: '/#highlights', target: '#highlights' },
+  { num: '03', label: 'Stalls', kanji: '案内', href: '/#map', target: '#map' },
+  { num: '04', label: 'Highlights', kanji: '科学', href: '/#highlights', target: '#highlights' },
   { num: '05', label: 'About', kanji: '概要', href: '/#about', target: '#about' },
   { num: '06', label: 'Team', kanji: '生徒', href: '/#team', target: '#team' },
 ];
@@ -187,7 +187,7 @@ export function Navigation() {
                         <span className="font-mono font-black text-xs bg-red text-white px-2 py-0.5 rounded">
                           {link.num}
                         </span>
-                        <span className="font-display font-black text-xl uppercase tracking-tight">
+                        <span className="font-display font-black text-xl uppercase tracking-wider">
                           {link.label}
                         </span>
                       </div>
@@ -206,7 +206,7 @@ export function Navigation() {
                         <span className="font-mono font-black text-xs bg-red text-white px-2 py-0.5 rounded">
                           {link.num}
                         </span>
-                        <span className="font-display font-black text-xl uppercase tracking-tight">
+                        <span className="font-display font-black text-xl uppercase tracking-wider">
                           {link.label}
                         </span>
                       </div>

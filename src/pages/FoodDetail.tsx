@@ -115,7 +115,7 @@ export function FoodDetail() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black text-black mb-3 leading-[0.98] tracking-tight">
+            <h1 className="text-2xl min-[380px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headline font-black text-black mb-3 leading-[1.08] sm:leading-[1.02] tracking-[0.035em] [text-wrap:balance]">
               {food.name}
             </h1>
             
@@ -175,7 +175,7 @@ export function FoodDetail() {
               <div className="flex items-center justify-between mb-5 pb-3 border-b-2.5 border-black/15">
                 <div className="flex items-center gap-2.5">
                   <span className="text-2xl">🥗</span>
-                  <h2 className="text-xl sm:text-2xl font-display font-black text-black">
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-headline font-black text-black tracking-[0.035em]">
                     Recipe Ingredients (材料一覧)
                   </h2>
                 </div>
@@ -204,7 +204,7 @@ export function FoodDetail() {
                     Home Science Principle (家庭科学の原理)
                   </h2>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-display font-black text-white mb-3">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-headline font-black text-white mb-3 leading-snug tracking-[0.035em]">
                   The Chemical & Culinary Reaction Behind {food.name}
                 </h3>
                 <p className="text-sm sm:text-base text-white/95 leading-relaxed font-medium">
@@ -218,7 +218,7 @@ export function FoodDetail() {
               <div className="bg-red text-white border-3.5 border-black rounded-3xl p-6 shadow-[6px_6px_0px_#111111]">
                 <div className="flex items-center gap-2.5 mb-3">
                   <AlertTriangle size={22} className="text-yellow" />
-                  <h2 className="text-lg font-display font-black text-white uppercase tracking-tight">
+                  <h2 className="text-base sm:text-lg font-headline font-black text-white uppercase tracking-[0.04em]">
                     Allergen Information (アレルゲン明記)
                   </h2>
                 </div>
@@ -247,7 +247,7 @@ export function FoodDetail() {
               <div className="flex items-center justify-between mb-5 pb-3 border-b-3 border-black">
                 <div className="flex items-center gap-2">
                   <Scale size={22} className="text-black" />
-                  <h2 className="text-xl font-display font-black text-black">
+                  <h2 className="text-lg sm:text-xl font-headline font-black text-black tracking-[0.035em]">
                     Nutrition Facts (栄養成分)
                   </h2>
                 </div>

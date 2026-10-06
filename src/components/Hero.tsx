@@ -17,17 +17,6 @@ export function Hero() {
         {/* Top Comic/Cartoon Metadata Ribbon */}
         <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
           <JapaneseSeal kanji="食育" subtext="SPSC" size="sm" variant="red" rotate="-4deg" />
-          
-          <div className="bg-blue text-white border-2.5 border-black px-3 py-1 rounded-xl font-mono font-black text-xs uppercase tracking-wider shadow-[3px_3px_0px_#111111]">
-            ISSUE NO. 07 · Class 7 Tulip
-          </div>
-
-          <RetroStamp 
-            label="HOME PREPARED · PRESENTED AT SCHOOL" 
-            sub="SOUTHPOINT SCHOOL & COLLEGE" 
-            variant="red" 
-            rotate="1deg"
-          />
 
           <span className="hidden xl:inline-block font-mono text-xs font-bold uppercase tracking-widest text-black/80 bg-white border-2 border-black px-2.5 py-1 rounded-md shadow-[2px_2px_0px_#111111]">
             Academic Year 2026
@@ -47,21 +36,17 @@ export function Hero() {
               <span>Home Science Festival</span>
             </div>
 
-            <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-black leading-[0.95] tracking-tighter mb-6 select-none">
+            <h1 className="font-headline font-black text-3xl min-[380px]:text-4xl min-[480px]:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-black leading-[1.08] sm:leading-[1.02] tracking-[0.04em] mb-6 select-none [text-wrap:balance]">
               A LITTLE <br />
               <span className="relative inline-block my-1.5">
-                <span className="relative z-10 bg-red text-yellow px-4 py-1.5 border-3.5 border-black rounded-2xl shadow-[6px_6px_0px_#111111] inline-block -rotate-1">
-                  TASTE OF HOME
+                <span className="relative z-10 bg-red text-yellow px-2 sm:px-2.5 py-0.5 sm:py-1 border-3 sm:border-3.5 border-black rounded-xl sm:rounded-2xl shadow-[4px_4px_0px_#111111] sm:shadow-[6px_6px_0px_#111111] inline-block -rotate-1 tracking-[0.03em] text-2xl min-[380px]:text-3xl min-[480px]:text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
+                  FOOD FESTIVAL!!
                 </span>
-              </span>
-              <br />
-              <span className="text-black inline-block mt-1">
-                FOOD FESTIVAL.
               </span>
             </h1>
 
             <p className="max-w-xl text-base sm:text-lg md:text-xl text-black font-medium leading-relaxed mb-8 [text-wrap:pretty]">
-              Exploring culinary science, nutritional biochemistry, balanced dietetics, and the physical transformations behind home-cooked recipes. A student exhibition by Section Tulip.
+              Exploring culinary skills, nutritional charts, balanced dietetics, and the process behind home-cooked recipes. A student Food exhibition by Section Tulip.
             </p>
 
             {/* Tactile Action Button Row */}
@@ -82,7 +67,7 @@ export function Hero() {
                 onClick={() => scrollToElement('#map')} 
                 className="w-full sm:w-auto text-base shadow-[5px_5px_0px_#111111]"
               >
-                <span>Floor Blueprint (配置図)</span>
+                <span>Floor Plan (配置図)</span>
               </Button>
             </div>
 
@@ -90,9 +75,9 @@ export function Hero() {
             <div className="w-full max-w-xl">
               <RetroTicket
                 badge="CURRICULAR REQUIREMENT"
-                code="SPSC-HS-2026"
+                code="SPSC-Tulip-2026"
                 title="Prepared at Home • Presented at School"
-                subtitle="All dishes were crafted in students' home kitchens and brought to school for Home Science demonstration. No dishes were cooked on school premises."
+                subtitle="All dishes were prepared by students' home kitchens and brought to school for Home Science demonstration. No dishes were cooked on school premises."
                 variant="yellow"
                 className="w-full"
               />

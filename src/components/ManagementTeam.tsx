@@ -21,7 +21,7 @@ export function ManagementTeam() {
             badge="The Cohort"
             badgeVariant="yellow"
             title="Meet The Student Contributors (生徒名簿)"
-            description="Class 7 Section Tulip students divided into specialized squads to execute recipe research, culinary preparation, hygiene monitoring, and physical presentation."
+            description="Class 7 Section Tulip students divided into specialized squads to Prepare Dishes, culinary preparation, hygiene maintaining, and physical presentation."
             theme="light"
           />
         </div>
@@ -33,14 +33,14 @@ export function ManagementTeam() {
               A
             </span>
             <div>
-              <h3 className="font-display font-black text-xl sm:text-2xl text-black flex items-center gap-2">
+              <h3 className="font-headline font-black text-lg sm:text-xl md:text-2xl text-black flex flex-wrap items-center gap-2 tracking-[0.035em] leading-snug">
                 <span>Decoration & Presentation Squad</span>
                 <span className="text-xs font-mono font-black bg-blue text-white px-2 py-0.5 rounded border border-black shadow-[1px_1px_0px_#111111]">
                   装飾展示班
                 </span>
               </h3>
               <p className="text-xs font-mono uppercase text-black/70 font-bold">
-                Classroom layout, visual aesthetics, signage & guest reception
+                Classroom plan, visual aesthetics, signage & guest reception
               </p>
             </div>
           </div>
@@ -79,14 +79,14 @@ export function ManagementTeam() {
               B
             </span>
             <div>
-              <h3 className="font-display font-black text-xl sm:text-2xl text-black flex items-center gap-2">
+              <h3 className="font-headline font-black text-lg sm:text-xl md:text-2xl text-black flex flex-wrap items-center gap-2 tracking-[0.035em] leading-snug">
                 <span>Food Preparation & Nutrition Squad</span>
                 <span className="text-xs font-mono font-black bg-red text-white px-2 py-0.5 rounded border border-black shadow-[1px_1px_0px_#111111]">
                   調理栄養班
                 </span>
               </h3>
               <p className="text-xs font-mono uppercase text-black/70 font-bold">
-                Home culinary execution, recipe ratios, macronutrient calculations & hygiene
+                Home preparation, recipe making, nutrient calculations & hygiene
               </p>
             </div>
           </div>

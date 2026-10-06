@@ -59,7 +59,7 @@ export function SectionHeading({
 
       {/* Main Headline */}
       <h2 className={cn(
-        "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black leading-[1.02] tracking-tight [text-wrap:balance]",
+        "text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headline font-black leading-[1.12] sm:leading-[1.05] tracking-[0.035em] [text-wrap:balance]",
         isDark ? "text-white" : "text-black"
       )}>
         {title}

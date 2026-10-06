@@ -150,7 +150,7 @@ export function StallMap() {
                     {stall.food?.name}
                   </div>
                   <div className="text-[9px] font-mono font-black uppercase text-black/70">
-                    Inspect Recipe →
+                    Discover Recipe →
                   </div>
                 </div>
               </div>

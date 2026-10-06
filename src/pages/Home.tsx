@@ -17,7 +17,7 @@ export function Home() {
       {/* Primary Hero Divider Marquee (Poster Yellow Strip with Black Typography) */}
       <Marquee 
         items={[
-          "DISCOVER · 発見", 
+          "IMAGINE · 発見", 
           "CREATE · 創造", 
           "TASTE · 美味", 
           "SCIENCE · 科学", 
@@ -35,7 +35,7 @@ export function Home() {
       {/* Comic Pop Red Transition Marquee */}
       <Marquee 
         items={[
-          "CLASSROOM BLUEPRINT", 
+          "CLASSROOM", 
           "FLOOR PLAN · 配置図", 
           "9 EXHIBITED STALLS", 
           "SOUTHPOINT SCHOOL & COLLEGE", 
@@ -56,7 +56,7 @@ export function Home() {
           "SPSC CLASS 7 TULIP · 第7学年", 
           "PURE HOME SCIENCE PROJECT", 
           `${foods.length} EXHIBITED DISHES · 全${foods.length}品`, 
-          "HYGIENE VERIFIED · 衛生管理"
+          "HYGIENE MAINTAINED · 衛生管理"
         ]} 
         variant="ticker" 
         speed="slow" 
@@ -75,9 +75,9 @@ export function Home() {
       <Marquee 
         items={[
           "COLLABORATION · 協同", 
-          "PASSION · 情熱", 
-          "CULINARY ARTS · 料理", 
-          "CHEMISTRY · 化学", 
+          "IMAGINATION · 情熱", 
+          "CULINARY SKILLS · 料理", 
+          "PRESENTATION · 化学", 
           "STUDENT SQUADS · 生徒班", 
           "SPSC 2026 · 南尖学園"
         ]} 
