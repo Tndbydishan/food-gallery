@@ -8,10 +8,11 @@ import { teamGroups } from '../data/team';
 export function Statistics() {
   const allMembers = [...teamGroups.decoration, ...teamGroups.foodPrep];
   const uniqueStudents = new Set(allMembers.map(m => m.name)).size;
+  const categoryCount = new Set(foods.map(f => f.category)).size;
 
   const stats = [
     { label: "Exhibited Dishes", kanji: "展示品数", value: `${foods.length < 10 ? '0' + foods.length : foods.length}`, desc: "Handcrafted recipes", color: "bg-primary text-black", shadow: "shadow-[5px_5px_0px_#111111]" },
-    { label: "Food Categories", kanji: "料理区分", value: "05", desc: "From mains to desserts", color: "bg-green text-white", shadow: "shadow-[5px_5px_0px_#111111]" },
+    { label: "Food Categories", kanji: "料理区分", value: `0${categoryCount}`, desc: "From mains to desserts", color: "bg-green text-white", shadow: "shadow-[5px_5px_0px_#111111]" },
     { label: "Home Science", kanji: "家庭科実践", value: "100%", desc: "Curriculum integrated", color: "bg-red text-white", shadow: "shadow-[5px_5px_0px_#111111]" },
     { label: "Student Creators", kanji: "参加生徒", value: `${uniqueStudents}`, desc: "Section Tulip cohort", color: "bg-blue text-white", shadow: "shadow-[5px_5px_0px_#111111]" }
   ];

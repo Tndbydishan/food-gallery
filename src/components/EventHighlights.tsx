@@ -57,6 +57,9 @@ export function EventHighlights() {
                 src={scienceImage} 
                 alt="Culinary recipe ingredients and kitchen items preparation"
                 className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-3 left-3 bg-yellow text-black px-3 py-1 rounded-lg text-xs font-mono font-black border-2 border-black shadow-[2px_2px_0px_#111111]">
                 🧪 Nutrition Analysis · Section Tulip
@@ -151,6 +154,9 @@ export function EventHighlights() {
                 src={presentationImage} 
                 alt="Festive food table presentation with desserts and salads"
                 className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-3 left-3 bg-white text-black px-3 py-1 rounded-md text-xs font-mono font-black shadow-[3px_3px_0px_#111111] border-2 border-black">
                 🍽️ Plating Harmony · Color & Texture Balance

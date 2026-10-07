@@ -38,8 +38,8 @@ export function Hero() {
 
             <h1 className="font-headline font-black text-3xl min-[380px]:text-4xl min-[480px]:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-black leading-[1.08] sm:leading-[1.02] tracking-[0.04em] mb-6 select-none [text-wrap:balance]">
               A LITTLE <br />
-              <span className="relative inline-block my-1.5">
-                <span className="relative z-10 bg-red text-yellow px-2 sm:px-2.5 py-0.5 sm:py-1 border-3 sm:border-3.5 border-black rounded-xl sm:rounded-2xl shadow-[4px_4px_0px_#111111] sm:shadow-[6px_6px_0px_#111111] inline-block -rotate-1 tracking-[0.03em] text-2xl min-[380px]:text-3xl min-[480px]:text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
+              <span className="relative inline-block my-1.5 max-w-fit">
+                <span className="relative z-10 bg-red text-yellow px-1.5 sm:px-2 py-0.5 sm:py-0.5 border-3 sm:border-3.5 border-black rounded-xl sm:rounded-2xl shadow-[4px_4px_0px_#111111] sm:shadow-[6px_6px_0px_#111111] inline-block max-w-fit -rotate-1 tracking-[0.03em] text-2xl min-[380px]:text-3xl min-[480px]:text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
                   FOOD FESTIVAL!!
                 </span>
               </span>
@@ -102,6 +102,9 @@ export function Hero() {
                     src={heroImage} 
                     alt="Student prepared Home Science food festival exhibition showcase" 
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="eager"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
                   />
 
                   {/* Japanese Vertical Label Stripe Overlay */}
@@ -127,7 +130,7 @@ export function Hero() {
                     </span>
                   </div>
                   <div className="bg-yellow text-black font-display font-black px-2.5 py-1 rounded-lg text-xs uppercase border-2 border-black shadow-[2px_2px_0px_#111111]">
-                    Stalls 01–09
+                    Stalls 01–10
                   </div>
                 </div>
               </div>

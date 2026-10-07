@@ -16,10 +16,11 @@ export function FoodCard({ food }: FoodCardProps) {
 
   const categoryConfig: Record<string, { variant: 'yellow' | 'red' | 'blue' | 'green' | 'pink' | 'orange', kanji: string }> = {
     main: { variant: 'yellow', kanji: '主食' },
+    side: { variant: 'green', kanji: '副菜' },
+    dessert: { variant: 'pink', kanji: '甘味' },
     savory: { variant: 'orange', kanji: '風味' },
     salad: { variant: 'green', kanji: '生菜' },
     beverage: { variant: 'blue', kanji: '飲料' },
-    dessert: { variant: 'pink', kanji: '甘味' },
   };
 
   const currentCategory = categoryConfig[food.category] || { variant: 'yellow', kanji: '料理' };
@@ -37,6 +38,8 @@ export function FoodCard({ food }: FoodCardProps) {
           alt={food.name} 
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer"
         />
         
         {/* Category Sticker with Kanji & English */}

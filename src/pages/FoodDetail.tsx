@@ -50,10 +50,11 @@ export function FoodDetail() {
 
   const categoryKanjiMap: Record<string, string> = {
     main: '主食',
+    side: '副菜',
+    dessert: '甘味',
     savory: '風味',
     salad: '生菜',
     beverage: '飲料',
-    dessert: '甘味',
   };
 
   return (
@@ -89,6 +90,9 @@ export function FoodDetail() {
                 src={food.image} 
                 alt={food.name} 
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="eager"
+                decoding="async"
+                referrerPolicy="no-referrer"
               />
               
               {/* Category Sticker */}

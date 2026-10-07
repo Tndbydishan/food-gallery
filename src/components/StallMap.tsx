@@ -12,18 +12,21 @@ export function StallMap() {
   const getFood = (id: string) => foods.find(f => f.id === id);
 
   const stalls = [
-    { id: "fried-rice", food: getFood("fried-rice"), x: 20, y: 25, color: "bg-primary text-black", stallNum: "01", kanji: "炒飯" },
-    { id: "fried-chicken", food: getFood("fried-chicken"), x: 20, y: 50, color: "bg-primary text-black", stallNum: "02", kanji: "唐揚" },
-    { id: "kabab", food: getFood("kabab"), x: 20, y: 75, color: "bg-primary text-black", stallNum: "03", kanji: "肉串" },
+    // Zone A: Mains
+    { id: "fried-rice", food: getFood("fried-rice"), x: 18, y: 22, color: "bg-primary text-black", stallNum: "01", kanji: "炒飯" },
+    { id: "fried-chicken", food: getFood("fried-chicken"), x: 18, y: 46, color: "bg-primary text-black", stallNum: "02", kanji: "唐揚" },
+    { id: "chinese-vegetable", food: getFood("chinese-vegetable"), x: 18, y: 70, color: "bg-primary text-black", stallNum: "03", kanji: "中華" },
+    { id: "chicken-kabab", food: getFood("chicken-kabab"), x: 33, y: 46, color: "bg-primary text-black", stallNum: "04", kanji: "肉串" },
     
-    { id: "vegetable-salad", food: getFood("vegetable-salad"), x: 50, y: 25, color: "bg-green text-white", stallNum: "04", kanji: "野菜" },
-    { id: "fruit-salad", food: getFood("fruit-salad"), x: 50, y: 50, color: "bg-green text-white", stallNum: "05", kanji: "果物" },
+    // Zone B: Side Dishes
+    { id: "salad", food: getFood("salad"), x: 50, y: 24, color: "bg-green text-white", stallNum: "05", kanji: "生菜" },
+    { id: "juice", food: getFood("juice"), x: 50, y: 48, color: "bg-blue text-white", stallNum: "06", kanji: "果汁" },
+    { id: "pasta", food: getFood("pasta"), x: 65, y: 24, color: "bg-yellow text-black", stallNum: "07", kanji: "麺類" },
+    { id: "pitha", food: getFood("pitha"), x: 65, y: 48, color: "bg-green text-white", stallNum: "08", kanji: "伝統" },
     
-    { id: "tang", food: getFood("tang"), x: 80, y: 25, color: "bg-blue text-white", stallNum: "06", kanji: "果汁" },
-    { id: "soft-drinks", food: getFood("soft-drinks"), x: 80, y: 50, color: "bg-blue text-white", stallNum: "07", kanji: "炭酸" },
-    
-    { id: "pudding", food: getFood("pudding"), x: 50, y: 75, color: "bg-red text-white", stallNum: "08", kanji: "布丁" },
-    { id: "custard", food: getFood("custard"), x: 80, y: 75, color: "bg-red text-white", stallNum: "09", kanji: "菓子" },
+    // Zone C: Desserts
+    { id: "pudding", food: getFood("pudding"), x: 82, y: 32, color: "bg-red text-white", stallNum: "09", kanji: "布丁" },
+    { id: "custard", food: getFood("custard"), x: 82, y: 64, color: "bg-red text-white", stallNum: "10", kanji: "菓子" },
   ].filter(s => s.food);
 
   const handleStallClick = (foodId?: string) => {
@@ -79,23 +82,23 @@ export function StallMap() {
 
             {/* Zone Backdrops (Classroom Stall Tables) */}
             {/* Zone A: Mains (Yellow) */}
-            <div className="absolute top-8 bottom-16 left-8 w-32 md:w-40 rounded-2xl border-3 border-dashed border-black bg-primary/25 flex flex-col items-center pt-2">
+            <div className="absolute top-8 bottom-16 left-6 w-36 md:w-56 rounded-2xl border-3 border-dashed border-black bg-primary/20 flex flex-col items-center pt-2">
               <span className="text-[10px] font-mono font-black uppercase text-black bg-primary px-2 py-0.5 rounded border-2 border-black shadow-[2px_2px_0px_#111111]">
-                A区 · 主食 Mains
+                A区 · 主食 Mains (01-04)
               </span>
             </div>
             
-            {/* Zone B: Salads & Sweets (Green & Red) */}
-            <div className="absolute top-8 bottom-36 left-1/2 -translate-x-1/2 w-32 md:w-40 rounded-2xl border-3 border-dashed border-black bg-green/20 flex flex-col items-center pt-2">
+            {/* Zone B: Side Dishes (Green) */}
+            <div className="absolute top-8 bottom-16 left-[40%] right-[32%] rounded-2xl border-3 border-dashed border-black bg-green/20 flex flex-col items-center pt-2">
               <span className="text-[10px] font-mono font-black uppercase text-white bg-green px-2 py-0.5 rounded border-2 border-black shadow-[2px_2px_0px_#111111]">
-                B区 · 生菜 Salads
+                B区 · 副菜 Sides (05-08)
               </span>
             </div>
             
-            {/* Zone C: Beverages & Desserts (Blue) */}
-            <div className="absolute top-8 bottom-16 right-8 w-32 md:w-40 rounded-2xl border-3 border-dashed border-black bg-blue/20 flex flex-col items-center pt-2">
-              <span className="text-[10px] font-mono font-black uppercase text-white bg-blue px-2 py-0.5 rounded border-2 border-black shadow-[2px_2px_0px_#111111]">
-                C区 · 飲料 Sweets
+            {/* Zone C: Desserts (Red) */}
+            <div className="absolute top-8 bottom-16 right-6 w-32 md:w-44 rounded-2xl border-3 border-dashed border-black bg-red/20 flex flex-col items-center pt-2">
+              <span className="text-[10px] font-mono font-black uppercase text-white bg-red px-2 py-0.5 rounded border-2 border-black shadow-[2px_2px_0px_#111111]">
+                C区 · 甘味 Desserts (09-10)
               </span>
             </div>
 
@@ -115,9 +118,18 @@ export function StallMap() {
             {stalls.map(stall => (
               <div 
                 key={stall.id} 
-                className="absolute flex flex-col items-center group cursor-pointer transition-all duration-150 z-10"
+                role="button"
+                tabIndex={0}
+                aria-label={`Stall ${stall.stallNum}: ${stall.food?.name}`}
+                className="absolute flex flex-col items-center group cursor-pointer transition-all duration-150 z-10 outline-none focus-visible:ring-4 focus-visible:ring-primary rounded-2xl"
                 style={{ left: `${stall.x}%`, top: `${stall.y}%`, transform: 'translate(-50%, -50%)' }}
                 onClick={() => handleStallClick(stall.food?.id)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleStallClick(stall.food?.id);
+                  }
+                }}
               >
                 {/* Stall Circle Pin with Offset Shadow */}
                 <div className="relative">
@@ -127,6 +139,9 @@ export function StallMap() {
                         src={stall.food.image} 
                         alt={stall.food.name} 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+                        loading="lazy"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
                       />
                     ) : (
                       <Utensils className="text-black" size={22} />

@@ -37,9 +37,9 @@ export function Home() {
         items={[
           "CLASSROOM", 
           "FLOOR PLAN · 配置図", 
-          "9 EXHIBITED STALLS", 
+          "10 EXHIBITED STALLS", 
           "SOUTHPOINT SCHOOL & COLLEGE", 
-          "NO. 01 TO NO. 09"
+          "NO. 01 TO NO. 10"
         ]} 
         variant="red" 
         speed="normal" 

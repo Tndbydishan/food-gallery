@@ -7,10 +7,8 @@ import { Search, ShieldCheck, X } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Dishes', kanji: '全品' },
-  { id: 'main', label: 'Main', kanji: '主食' },
-  { id: 'savory', label: 'Savory', kanji: '風味' },
-  { id: 'salad', label: 'Salads', kanji: '生菜' },
-  { id: 'beverage', label: 'Beverages', kanji: '飲料' },
+  { id: 'main', label: 'Main Dishes', kanji: '主食' },
+  { id: 'side', label: 'Side Dishes', kanji: '副菜' },
   { id: 'dessert', label: 'Desserts', kanji: '甘味' },
 ];
 

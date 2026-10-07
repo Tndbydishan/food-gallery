@@ -39,7 +39,7 @@ export interface FoodItem {
   id: string;
   slug: string;
   name: string;
-  category: 'main' | 'savory' | 'salad' | 'beverage' | 'dessert';
+  category: 'main' | 'side' | 'dessert' | 'savory' | 'salad' | 'beverage';
   image: string;
   description: string;
   dietary: string[];
@@ -53,449 +53,93 @@ export interface FoodItem {
   measurementBasis?: {
     metric: { weight?: number, volume?: number, temp?: number };
     imperial: { weight?: number, volume?: number, temp?: number };
-  }
+  };
 }
 
 export const foods: FoodItem[] = [
   {
     id: "fried-rice",
     slug: "fried-rice",
-    name: "Fried Rice",
+    name: "Egg & Vegetable Fried Rice",
     category: "main",
-    image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&q=80&w=800",
-    description: "A classic favorite packed with colorful vegetables and perfectly seasoned grains.",
-    dietary: ["Vegetarian"],
-    ingredients: ["Rice", "Carrots", "Peas", "Green Beans", "Cooking Oil", "Soy Sauce", "Salt", "Seasonings"],
-    allergens: {
-      contains: ["Soy"],
-      mayContain: ["Wheat"]
-    },
-    nutrition: {
-      basis: "100g",
-      energyKcal: 160,
-      protein: 3.5,
-      carbohydrates: 28.0,
-      fat: 3.8,
-      saturatedFat: 0.6,
-      fiber: 1.2,
-      sugars: 0.5,
-      sodiumMg: 210
-    },
-    serving: {
-      size: "1 plate (200g)",
-      yield: "4 portions"
-    },
-    preparation: {
-      time: "20 min",
-      difficulty: "Medium"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "Proper heat control and precooked cooled rice are essential to prevent the grains from becoming mushy, demonstrating the science of starch retrogradation."
-  },
-  {
-    id: "fried-chicken",
-    slug: "fried-chicken",
-    name: "Fried Chicken",
-    category: "main",
-    image: "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&q=80&w=800",
-    description: "Crispy on the outside, juicy on the inside. Carefully marinated and fried to golden perfection.",
-    dietary: ["High Protein"],
-    ingredients: ["Chicken pieces", "Wheat flour", "Egg", "Milk", "Spices", "Salt", "Cooking oil"],
-    allergens: {
-      contains: ["Wheat", "Gluten", "Egg", "Milk"],
-      mayContain: ["Soy"]
-    },
-    nutrition: {
-      basis: "100g",
-      energyKcal: 290,
-      protein: 15.0,
-      carbohydrates: 12.5,
-      fat: 19.8,
-      saturatedFat: 4.5,
-      fiber: 0.8,
-      sugars: 0.2,
-      sodiumMg: 350
-    },
-    serving: {
-      size: "2 pieces (150g)",
-      yield: "6 portions"
-    },
-    preparation: {
-      time: "45 min",
-      difficulty: "Hard"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "The Maillard reaction creates the delicious golden crust during frying, while the buttermilk marinade tenderizes the protein structures."
-  },
-  {
-    id: "vegetable-salad",
-    slug: "vegetable-salad",
-    name: "Vegetable Salad",
-    category: "salad",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
-    description: "A refreshing mix of crisp, fresh vegetables tossed in a light lemon dressing.",
-    dietary: ["Vegan", "Vegetarian", "High Fiber"],
-    ingredients: ["Cucumber", "Tomato", "Carrot", "Onion", "Lettuce", "Lemon juice", "Salt"],
-    allergens: {
-      contains: [],
-      mayContain: []
-    },
-    nutrition: {
-      basis: "100g",
-      energyKcal: 25,
-      protein: 1.2,
-      carbohydrates: 5.5,
-      fat: 0.2,
-      saturatedFat: 0,
-      fiber: 2.1,
-      sugars: 2.8,
-      sodiumMg: 15
-    },
-    serving: {
-      size: "1 bowl (150g)",
-      yield: "4 portions"
-    },
-    preparation: {
-      time: "15 min",
-      difficulty: "Easy"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "Preparing salads requires understanding oxidation; applying acidic lemon juice helps prevent the vegetables from browning too quickly."
-  },
-  {
-    id: "fruit-salad",
-    slug: "fruit-salad",
-    name: "Fruit Salad",
-    category: "salad",
-    image: "https://images.unsplash.com/photo-1564093497595-593b96d80180?auto=format&fit=crop&q=80&w=800",
-    description: "A sweet, vibrant medley of fresh seasonal fruits.",
-    dietary: ["Vegan", "Vegetarian", "Low Fat"],
-    ingredients: ["Apple", "Banana", "Orange", "Papaya", "Watermelon", "Grapes"],
-    allergens: {
-      contains: [],
-      mayContain: []
-    },
-    nutrition: {
-      basis: "100g",
-      energyKcal: 45,
-      protein: 0.6,
-      carbohydrates: 11.5,
-      fat: 0.3,
-      saturatedFat: 0,
-      fiber: 1.8,
-      sugars: 9.5,
-      sodiumMg: 2
-    },
-    serving: {
-      size: "1 cup (120g)",
-      yield: "5 portions"
-    },
-    preparation: {
-      time: "15 min",
-      difficulty: "Easy"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "Careful cutting techniques ensure uniform pieces, providing better mouthfeel, while understanding fruit sugar profiles helps balance the overall sweetness."
-  },
-  {
-    id: "kabab",
-    slug: "kabab",
-    name: "Chicken Kabab",
-    category: "savory",
-    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=800",
-    description: "Succulent, spiced chicken minced and grilled to perfection on skewers.",
-    dietary: ["High Protein"],
-    ingredients: ["Minced Chicken", "Onions", "Garlic", "Ginger", "Spices", "Coriander", "Cooking Oil"],
-    allergens: {
-      contains: [],
-      mayContain: ["Soy"]
-    },
-    nutrition: {
-      basis: "100g",
-      energyKcal: 210,
-      protein: 18.5,
-      carbohydrates: 4.2,
-      fat: 13.0,
-      saturatedFat: 3.5,
-      fiber: 1.0,
-      sugars: 1.2,
-      sodiumMg: 320
-    },
-    serving: {
-      size: "2 skewers (120g)",
-      yield: "8 portions"
-    },
-    preparation: {
-      time: "40 min",
-      difficulty: "Medium"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "The binding of the minced meat without egg relies on the mechanical working of the meat proteins (myosin) to create a sticky matrix."
-  },
-  {
-    id: "soft-drinks",
-    slug: "soft-drinks",
-    name: "Soft Drinks",
-    category: "beverage",
-    image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80&w=800",
-    description: "Chilled, bubbly, and refreshing carbonated beverages.",
-    dietary: ["Vegan", "Vegetarian"],
-    ingredients: ["Carbonated Water", "Sugar", "Coloring", "Phosphoric Acid", "Natural Flavors", "Caffeine"],
-    allergens: {
-      contains: [],
-      mayContain: []
-    },
-    nutrition: {
-      basis: "100ml",
-      energyKcal: 42,
-      protein: 0,
-      carbohydrates: 10.6,
-      fat: 0,
-      saturatedFat: 0,
-      fiber: 0,
-      sugars: 10.6,
-      sodiumMg: 4
-    },
-    variants: [
-      {
-        name: "Coca-Cola",
-        nutrition: {
-          basis: "100ml",
-          energyKcal: 42,
-          protein: 0,
-          carbohydrates: 10.6,
-          fat: 0,
-          saturatedFat: 0,
-          fiber: 0,
-          sugars: 10.6,
-          sodiumMg: 4
-        },
-        ingredients: ["Carbonated Water", "Sugar", "Color (Caramel E150d)", "Phosphoric Acid", "Natural Flavors", "Caffeine"],
-        dietary: ["Vegan"],
-        allergens: { contains: [], mayContain: [] }
-      },
-      {
-        name: "MOJO",
-        nutrition: {
-          basis: "100ml",
-          energyKcal: 45,
-          protein: 0,
-          carbohydrates: 11.2,
-          fat: 0,
-          saturatedFat: 0,
-          fiber: 0,
-          sugars: 11.2,
-          sodiumMg: 5
-        },
-        ingredients: ["Carbonated Water", "Sugar", "Citric Acid", "Flavors", "Preservatives"],
-        dietary: ["Vegan"],
-        allergens: { contains: [], mayContain: [] }
-      }
+    image: "/src/assets/images/fried_rice_accurate_1791371460329.jpg",
+    description: "Fluffy fragrant stir-fried rice tossed with golden scrambled farm eggs, finely diced sweet carrots, tender green peas, and scallions in light savory seasoning.",
+    dietary: ["High Energy", "Halal"],
+    ingredients: [
+      "Aromatic Long-Grain Rice",
+      "Farm Fresh Eggs",
+      "Sweet Carrots (Finely Diced)",
+      "Green Peas & Spring Onions",
+      "Green Capsicum",
+      "Light Soy Sauce",
+      "Pure Vegetable Oil",
+      "White Pepper & Sea Salt"
     ],
-    serving: {
-      size: "1 glass (250ml)",
-      yield: "1 portion"
-    },
-    measurementBasis: {
-      metric: { volume: 100 },
-      imperial: { volume: 3.4 }
-    },
-    homeScienceInsight: "Carbonation involves dissolving carbon dioxide gas under pressure; understanding temperature effects on gas solubility explains why cold drinks hold fizz longer."
-  },
-  {
-    id: "tang",
-    slug: "tang",
-    name: "Tang",
-    category: "beverage",
-    image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&q=80&w=800",
-    description: "A sweet, citrusy prepared orange beverage, perfect for a refreshing energy boost.",
-    dietary: ["Vegetarian", "Vegan"],
-    ingredients: ["Water", "Sugar", "Citric Acid", "Artificial Flavor", "Ascorbic Acid (Vitamin C)", "Food Color (Yellow 5, Yellow 6)"],
     allergens: {
-      contains: [],
-      mayContain: []
-    },
-    nutrition: {
-      basis: "100ml (Prepared)",
-      energyKcal: 38,
-      protein: 0,
-      carbohydrates: 9.5,
-      fat: 0,
-      saturatedFat: 0,
-      fiber: 0,
-      sugars: 9.0,
-      sodiumMg: 15
-    },
-    serving: {
-      size: "1 glass (200ml)",
-      yield: "5 portions"
-    },
-    preparation: {
-      time: "5 min",
-      difficulty: "Easy"
-    },
-    measurementBasis: {
-      metric: { volume: 100 },
-      imperial: { volume: 3.4 }
-    },
-    homeScienceInsight: "The preparation demonstrates solute-solvent interactions; stirring increases the kinetic energy, helping the powdered sugar and acids dissolve faster in water."
-  },
-  {
-    id: "pudding",
-    slug: "pudding",
-    name: "Caramel Pudding",
-    category: "dessert",
-    image: "https://images.unsplash.com/photo-1590080826978-8316dfc0d663?auto=format&fit=crop&q=80&w=800",
-    description: "A silky smooth baked custard dessert topped with a layer of rich, golden caramel.",
-    dietary: ["Vegetarian"],
-    ingredients: ["Milk", "Eggs", "Sugar", "Vanilla Extract"],
-    allergens: {
-      contains: ["Milk", "Egg"],
-      mayContain: []
-    },
-    nutrition: {
-      basis: "100g",
-      energyKcal: 145,
-      protein: 4.8,
-      carbohydrates: 22.5,
-      fat: 4.2,
-      saturatedFat: 2.1,
-      fiber: 0,
-      sugars: 21.0,
-      sodiumMg: 55
-    },
-    serving: {
-      size: "1 slice (120g)",
-      yield: "6 portions"
-    },
-    preparation: {
-      time: "60 min",
-      difficulty: "Medium"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "Baking in a water bath (bain-marie) ensures gentle, even heat distribution, preventing the egg proteins from coagulating too quickly and curdling."
-  },
-  {
-    id: "custard",
-    slug: "custard",
-    name: "Fruit Custard",
-    category: "dessert",
-    image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&q=80&w=800",
-    description: "Creamy, chilled vanilla custard loaded with a colorful mix of fresh fruits.",
-    dietary: ["Vegetarian"],
-    ingredients: ["Milk", "Sugar", "Custard Powder (Cornstarch, Flavor, Color)", "Apple", "Banana", "Grapes", "Pomegranate"],
-    allergens: {
-      contains: ["Milk"],
+      contains: ["Egg", "Soy"],
       mayContain: ["Wheat"]
-    },
-    nutrition: {
-      basis: "100g",
-      energyKcal: 110,
-      protein: 3.2,
-      carbohydrates: 18.5,
-      fat: 2.8,
-      saturatedFat: 1.5,
-      fiber: 1.2,
-      sugars: 14.5,
-      sodiumMg: 45
-    },
-    serving: {
-      size: "1 bowl (150g)",
-      yield: "6 portions"
-    },
-    preparation: {
-      time: "30 min",
-      difficulty: "Easy"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "The thickening agent is cornstarch (in the custard powder), which undergoes gelatinization when heated with milk, trapping liquid in a starch network."
-  },
-  {
-    id: "mango-kulfi",
-    slug: "mango-kulfi",
-    name: "Mango Shahi Kulfi",
-    category: "dessert",
-    image: "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&q=80&w=800",
-    description: "Traditional slow-simmered condensed milk frozen dessert infused with alphonso mango pulp, cardamom, and toasted pistachios.",
-    dietary: ["Vegetarian", "Gluten-Free"],
-    ingredients: ["Whole Milk", "Condensed Milk", "Mango Pulp", "Cardamom Powder", "Pistachio", "Saffron", "Sugar"],
-    allergens: {
-      contains: ["Milk", "Tree Nuts"],
-      mayContain: []
     },
     nutrition: {
       basis: "100g",
       energyKcal: 175,
-      protein: 4.5,
-      carbohydrates: 24.0,
-      fat: 6.8,
-      saturatedFat: 4.2,
-      fiber: 0.8,
-      sugars: 22.5,
-      sodiumMg: 60
+      protein: 5.2,
+      carbohydrates: 28.8,
+      fat: 4.4,
+      saturatedFat: 0.9,
+      fiber: 1.5,
+      sugars: 0.8,
+      sodiumMg: 235
     },
     serving: {
-      size: "1 kulfi stick (100g)",
-      yield: "8 portions"
+      size: "1 plate (220g)",
+      yield: "4 portions"
     },
     preparation: {
-      time: "45 min + freezing",
+      time: "25 min",
       difficulty: "Medium"
     },
     measurementBasis: {
       metric: { weight: 100 },
       imperial: { weight: 3.5 }
     },
-    homeScienceInsight: "Prolonged low-heat simmering evaporates water and concentrates milk solids (casein and lactose), which depresses the freezing point to form fine micro-crystalline structures rather than coarse ice shards."
+    homeScienceInsight: "Using pre-chilled cooked rice promotes retrogradation of amylose starches, keeping individual grains separated and preventing starch gelatin mushiness during high-temperature wok searing."
   },
   {
-    id: "chocolate-brownie",
-    slug: "chocolate-brownie",
-    name: "Fudgy Chocolate Brownie",
-    category: "dessert",
-    image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=800",
-    description: "Decadent, rich chocolate fudge squares with a delicate shiny crinkle crust and a dense, melt-in-the-mouth cocoa crumb.",
-    dietary: ["Vegetarian"],
-    ingredients: ["Dark Chocolate (55%)", "Butter", "Eggs", "Caster Sugar", "Cocoa Powder", "Wheat Flour", "Vanilla Extract", "Pinch of Salt"],
+    id: "fried-chicken",
+    slug: "fried-chicken",
+    name: "Crispy Fried Chicken",
+    category: "main",
+    image: "/src/assets/images/crispy_fried_chicken_1791371475110.jpg",
+    description: "Golden crispy fried chicken seasoned with garlic, ginger, and cracked black pepper, coated in a crunchy spiced batter and fried to juicy tenderness.",
+    dietary: ["High Protein", "Halal"],
+    ingredients: [
+      "Fresh Chicken Drumsticks & Cuts",
+      "Refined Wheat Flour",
+      "Cornstarch (Crisping Agent)",
+      "Farm Egg",
+      "Garlic-Ginger Marinade",
+      "Black Pepper & Mild Paprika",
+      "Light Soy Sauce",
+      "Vegetable Frying Oil"
+    ],
     allergens: {
-      contains: ["Wheat", "Gluten", "Egg", "Milk", "Soy"],
-      mayContain: ["Tree Nuts"]
+      contains: ["Wheat", "Gluten", "Egg", "Soy"],
+      mayContain: ["Milk"]
     },
     nutrition: {
       basis: "100g",
-      energyKcal: 380,
-      protein: 5.2,
-      carbohydrates: 48.0,
-      fat: 19.5,
-      saturatedFat: 11.5,
-      fiber: 3.8,
-      sugars: 36.0,
-      sodiumMg: 110
+      energyKcal: 252,
+      protein: 20.4,
+      carbohydrates: 9.8,
+      fat: 14.8,
+      saturatedFat: 3.1,
+      fiber: 0.5,
+      sugars: 0.2,
+      sodiumMg: 360
     },
     serving: {
-      size: "1 square (70g)",
-      yield: "12 squares"
+      size: "1 piece (120g)",
+      yield: "6 portions"
     },
     preparation: {
       time: "35 min",
@@ -505,83 +149,381 @@ export const foods: FoodItem[] = [
       metric: { weight: 100 },
       imperial: { weight: 3.5 }
     },
-    homeScienceInsight: "Vigorously whipping warm eggs and sugar creates a delicate dissolved sucrose foam that rises to the surface during baking to produce the iconic shiny crinkle top, while the high fat-to-flour ratio prevents gluten development."
+    homeScienceInsight: "The cornstarch and flour coating creates a high-surface-area starch matrix that flash-dehydrates upon contact with hot oil (175°C), creating an impervious crispy shield that seals in internal moisture."
   },
   {
-    id: "gulab-jamun",
-    slug: "gulab-jamun",
-    name: "Gulab Jamun in Rose Syrup",
-    category: "dessert",
-    image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800",
-    description: "Golden-fried milk solid dumplings steeped in warm, aromatic rose and cardamom scented sugar syrup.",
-    dietary: ["Vegetarian"],
-    ingredients: ["Mawa (Khoya)", "Paneer (Cottage Cheese)", "Wheat Flour", "Ghee / Cooking Oil", "Sugar", "Rose Water", "Cardamom", "Saffron"],
+    id: "chinese-vegetable",
+    slug: "chinese-vegetable",
+    name: "Chinese Mixed Vegetables (White Gravy)",
+    category: "main",
+    image: "/src/assets/images/chinese_vegetable_white_1791371488346.jpg",
+    description: "Classic restaurant-style mixed vegetables bathed in a savory, translucent glossy white cornstarch gravy with crisp papaya, carrots, cabbage, and aromatic garlic.",
+    dietary: ["Low Calorie", "High Fiber", "Halal"],
+    ingredients: [
+      "Crisp Green Papaya (Thin batons)",
+      "Fresh Carrots",
+      "Shredded Green Cabbage",
+      "Green Bell Pepper (Capsicum)",
+      "Baby Corn / Button Mushrooms",
+      "Sautéed Minced Garlic",
+      "Slit Mild Green Chilies",
+      "Refined Cornstarch (Thickening)",
+      "White Pepper & Chicken/Vegetable Broth",
+      "Light Cooking Oil"
+    ],
     allergens: {
-      contains: ["Milk", "Wheat", "Gluten"],
-      mayContain: []
-    },
-    nutrition: {
-      basis: "100g (2 pcs with syrup)",
-      energyKcal: 310,
-      protein: 6.0,
-      carbohydrates: 52.0,
-      fat: 9.5,
-      saturatedFat: 5.0,
-      fiber: 0.5,
-      sugars: 46.0,
-      sodiumMg: 70
-    },
-    serving: {
-      size: "2 pieces (100g)",
-      yield: "10 portions"
-    },
-    preparation: {
-      time: "40 min",
-      difficulty: "Hard"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "Frying at a controlled low-medium temperature (140°C–150°C) allows heat to gently coagulate the milk proteins without blistering the surface; upon soaking, osmotic pressure draws the warm sugar syrup deep into the porous sponge."
-  },
-  {
-    id: "strawberry-jelly",
-    slug: "strawberry-jelly",
-    name: "Layered Strawberry Jelly",
-    category: "dessert",
-    image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&q=80&w=800",
-    description: "Vibrant ruby-red strawberry fruit gelatin cups layered with smooth sweet vanilla cream and fresh sliced berries.",
-    dietary: ["Vegetarian", "Low Fat"],
-    ingredients: ["Strawberry Juice", "Vegetable Agar-Agar", "Sugar", "Fresh Strawberries", "Light Milk Cream", "Citric Acid"],
-    allergens: {
-      contains: ["Milk"],
-      mayContain: []
+      contains: [],
+      mayContain: ["Soy"]
     },
     nutrition: {
       basis: "100g",
-      energyKcal: 85,
-      protein: 1.8,
-      carbohydrates: 18.0,
-      fat: 1.1,
-      saturatedFat: 0.6,
-      fiber: 1.4,
-      sugars: 16.0,
-      sodiumMg: 20
+      energyKcal: 65,
+      protein: 1.9,
+      carbohydrates: 9.4,
+      fat: 2.2,
+      saturatedFat: 0.3,
+      fiber: 2.7,
+      sugars: 2.4,
+      sodiumMg: 185
     },
     serving: {
-      size: "1 cup (120g)",
-      yield: "6 portions"
+      size: "1 bowl (180g)",
+      yield: "4 portions"
     },
     preparation: {
-      time: "25 min + chilling",
+      time: "20 min",
       difficulty: "Easy"
     },
     measurementBasis: {
       metric: { weight: 100 },
       imperial: { weight: 3.5 }
     },
-    homeScienceInsight: "Agar-agar is a plant-based polysaccharide derived from red algae that exhibits hysteresis: it boils at 85°C and sets at 32°C–40°C into a firm, thermo-stable gel matrix that stays set even at ambient school exhibition temperatures."
+    homeScienceInsight: "Brief parboiling preserves hemicellulose and pectic cellular crispness in raw papaya and carrots, while cornstarch amylopectin expands above 70°C to create the iconic translucent, glossy white Chinese gravy without dairy."
+  },
+  {
+    id: "chicken-kabab",
+    slug: "chicken-kabab",
+    name: "Grilled Chicken Kabab",
+    category: "main",
+    image: "/src/assets/images/chicken_kabab_accurate_1791371497870.jpg",
+    description: "Succulent, herb-infused chicken kababs marinated with crushed garlic, ginger, roasted cumin, fresh coriander, and lemon juice, seared with golden char marks.",
+    dietary: ["High Protein", "Halal"],
+    ingredients: [
+      "Minced Fresh Chicken Breast",
+      "Finely Chopped Red Onion",
+      "Crushed Garlic & Fresh Ginger",
+      "Fresh Mint & Coriander Leaves",
+      "Roasted Cumin & Coriander Spices",
+      "Cracked Black Pepper",
+      "Farm Egg Binder",
+      "Fresh Lemon Juice",
+      "Mustard Oil / Vegetable Oil"
+    ],
+    allergens: {
+      contains: ["Egg"],
+      mayContain: ["Gluten"]
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 188,
+      protein: 21.5,
+      carbohydrates: 5.4,
+      fat: 8.8,
+      saturatedFat: 2.0,
+      fiber: 1.2,
+      sugars: 0.9,
+      sodiumMg: 320
+    },
+    serving: {
+      size: "2 kababs (110g)",
+      yield: "6 portions"
+    },
+    preparation: {
+      time: "35 min",
+      difficulty: "Medium"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "The mild acidity of fresh lemon juice denatures outer actin and myosin proteins in the chicken, allowing aromatic ginger and roasted spices to penetrate deeply while pan-searing triggers savory Maillard browning."
+  },
+  {
+    id: "custard",
+    slug: "custard",
+    name: "Fruit Custard",
+    category: "dessert",
+    image: "/src/assets/images/creamy_fruit_custard_1791371508443.jpg",
+    description: "Silky, chilled vanilla custard layered with sweet diced seasonal apples, bananas, juicy grapes, and ruby pomegranate pearls.",
+    dietary: ["Vegetarian", "Calcium Rich", "Halal"],
+    ingredients: [
+      "Pasteurized Whole Cow's Milk",
+      "Vanilla Custard Powder",
+      "Refined Cane Sugar",
+      "Crisp Sweet Apple",
+      "Ripe Sagar Banana",
+      "Fresh Green & Black Grapes",
+      "Pomegranate Seeds (Dalim)"
+    ],
+    allergens: {
+      contains: ["Milk"],
+      mayContain: ["Wheat"]
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 115,
+      protein: 3.5,
+      carbohydrates: 19.8,
+      fat: 2.7,
+      saturatedFat: 1.5,
+      fiber: 1.4,
+      sugars: 15.8,
+      sodiumMg: 46
+    },
+    serving: {
+      size: "1 dessert cup (150g)",
+      yield: "6 portions"
+    },
+    preparation: {
+      time: "20 min + Chilling",
+      difficulty: "Easy"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Milk casein proteins interact with gelatinized cornstarch granules to produce a stable emulsion. Folding in fresh fruits immediately after chilling minimizes enzyme breakdown and maintains crisp fruit cell turgor."
+  },
+  {
+    id: "pudding",
+    slug: "pudding",
+    name: "Caramel Pudding",
+    category: "dessert",
+    image: "/src/assets/images/caramel_custard_pudding_1791371519256.jpg",
+    description: "Velvety smooth steamed whole-milk and egg custard topped with a glistening, bittersweet amber caramel sauce.",
+    dietary: ["Vegetarian", "High Protein", "Halal"],
+    ingredients: [
+      "Fresh Farm Eggs",
+      "Sweetened Condensed Milk",
+      "Full Cream Liquid Milk",
+      "Granulated Sugar (Caramel Base)",
+      "Pure Vanilla Extract",
+      "Ground Cardamom (Aroma)"
+    ],
+    allergens: {
+      contains: ["Milk", "Egg"],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 165,
+      protein: 5.8,
+      carbohydrates: 23.5,
+      fat: 5.1,
+      saturatedFat: 2.6,
+      fiber: 0,
+      sugars: 21.8,
+      sodiumMg: 60
+    },
+    serving: {
+      size: "1 slice (110g)",
+      yield: "6 portions"
+    },
+    preparation: {
+      time: "45 min",
+      difficulty: "Medium"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Gentle water-bath steam cooking regulates heat below 85°C, ensuring egg ovalbumin and ovotransferrin proteins form a delicate tender gel without syneresis (weeping), while sucrose thermal caramelization produces complex aromatic lactones."
+  },
+  {
+    id: "salad",
+    slug: "salad",
+    name: "Fresh Salad (Vegetable & Fruit)",
+    category: "side",
+    image: "/src/assets/images/fresh_veg_fruit_salad_1791371529398.jpg",
+    description: "Crisp, revitalizing medley of fresh sliced cucumbers, ripe tomatoes, carrots, crisp green apples, and sweet grapes tossed in fresh lemon and rock salt.",
+    dietary: ["Low Calorie", "Vegan", "High Vitamin C", "Halal"],
+    ingredients: [
+      "Crisp Local Cucumber",
+      "Ripe Red Tomatoes",
+      "Sweet Grated Carrots",
+      "Crisp Green Apple Slices",
+      "Sweet Seedless Grapes",
+      "Fresh Lemon Juice",
+      "Chopped Mint & Coriander",
+      "Rock Salt & Black Pepper"
+    ],
+    allergens: {
+      contains: [],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 36,
+      protein: 1.0,
+      carbohydrates: 7.2,
+      fat: 0.3,
+      saturatedFat: 0.05,
+      fiber: 2.0,
+      sugars: 4.2,
+      sodiumMg: 95
+    },
+    serving: {
+      size: "1 bowl (130g)",
+      yield: "4 portions"
+    },
+    preparation: {
+      time: "15 min",
+      difficulty: "Easy"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "The natural ascorbic and citric acids in freshly squeezed lemon juice inhibit polyphenol oxidase, preventing oxidation and browning of apple polyphenols while enhancing iron bioavailability."
+  },
+  {
+    id: "juice",
+    slug: "juice",
+    name: "Fresh Fruit Juice",
+    category: "side",
+    image: "/src/assets/images/fresh_chilled_juice_1791371540270.jpg",
+    description: "Chilled and rejuvenating tropical fruit juice prepared with ripe mango nectar and sweet citrus, served over ice with fresh mint.",
+    dietary: ["Refreshing", "Vegan", "Vitamin C", "Halal"],
+    ingredients: [
+      "Ripe Mango Pulp",
+      "Fresh Sweet Orange / Tangerine",
+      "Chilled Filtered Water",
+      "Pure Cane Sugar",
+      "Fresh Lime Juice",
+      "Pinch of Himalayan Pink Salt",
+      "Fresh Garden Mint Leaves"
+    ],
+    allergens: {
+      contains: [],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 46,
+      protein: 0.4,
+      carbohydrates: 11.5,
+      fat: 0.1,
+      saturatedFat: 0.0,
+      fiber: 0.5,
+      sugars: 10.6,
+      sodiumMg: 30
+    },
+    serving: {
+      size: "1 glass (250ml)",
+      yield: "4 glasses"
+    },
+    preparation: {
+      time: "10 min",
+      difficulty: "Easy"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Cold blending retains heat-sensitive L-ascorbic acid (Vitamin C) and beta-carotene antioxidants, providing bioavailable natural carbohydrates and vital electrolyte ions."
+  },
+  {
+    id: "pitha",
+    slug: "pitha",
+    name: "Traditional Sweet Pitha",
+    category: "side",
+    image: "/src/assets/images/traditional_sweet_pitha_1791371552623.jpg",
+    description: "Delicate homemade rolled rice-flour crepes wrapped around a rich, aromatic filling of reduced condensed milk kheer and crushed green cardamom.",
+    dietary: ["Vegetarian", "Traditional Heritage", "Halal"],
+    ingredients: [
+      "Finely Milled Rice Flour",
+      "All-Purpose Wheat Flour",
+      "Fresh Cow's Milk",
+      "Slow-Reduced Milk Kheer Filling",
+      "Refined Cane Sugar",
+      "Aromatic Cardamom Pods",
+      "Pure Ghee (Pan greasing)"
+    ],
+    allergens: {
+      contains: ["Milk", "Wheat", "Gluten"],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 232,
+      protein: 5.1,
+      carbohydrates: 42.8,
+      fat: 5.0,
+      saturatedFat: 2.8,
+      fiber: 1.0,
+      sugars: 20.4,
+      sodiumMg: 42
+    },
+    serving: {
+      size: "2 rolls (120g)",
+      yield: "6 portions"
+    },
+    preparation: {
+      time: "40 min",
+      difficulty: "Medium"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Combining amylose-rich rice flour with gluten-forming wheat flour gives the crepe batter flexibility without fragility, preventing tearing when rolled around hot reduced milk."
+  },
+  {
+    id: "pasta",
+    slug: "pasta",
+    name: "Savory Chicken Pasta",
+    category: "side",
+    image: "/src/assets/images/chicken_vegetable_pasta_1791371563994.jpg",
+    description: "Tender sautéed chicken breast strips and durum pasta tossed with crisp bell peppers, onions, and sweet corn in an herb-infused savory sauce.",
+    dietary: ["High Energy", "Halal"],
+    ingredients: [
+      "Durum Wheat Penne Pasta",
+      "Boneless Diced Chicken Breast",
+      "Green & Red Bell Peppers",
+      "Sweet Onions & Sweet Corn",
+      "Garlic & Green Chilies",
+      "Rich Tomato Puree",
+      "Olive & Sunflower Oil",
+      "Oregano, Thyme & Black Pepper",
+      "Sea Salt"
+    ],
+    allergens: {
+      contains: ["Wheat", "Gluten"],
+      mayContain: ["Soy"]
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 182,
+      protein: 9.2,
+      carbohydrates: 25.4,
+      fat: 5.0,
+      saturatedFat: 1.0,
+      fiber: 2.3,
+      sugars: 2.6,
+      sodiumMg: 275
+    },
+    serving: {
+      size: "1 plate (180g)",
+      yield: "4 portions"
+    },
+    preparation: {
+      time: "25 min",
+      difficulty: "Medium"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Cooking durum semolina pasta al dente encapsulates starch inside gluten protein webs, yielding a lower glycemic impact while emulsifying with vegetable cooking oil to evenly coat the chicken."
   }
 ];
-
