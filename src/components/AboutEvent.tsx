@@ -79,10 +79,16 @@ export function AboutEvent() {
                   <img 
                     src={aboutImage} 
                     alt="Students home cooking and culinary presentation preparation" 
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      const fallback = '/images/about_home_preparation_1791045717331.jpg';
+                      if (target.src !== fallback && !target.src.endsWith(fallback)) {
+                        target.src = fallback;
+                      }
+                    }}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     loading="lazy"
                     decoding="async"
-                    referrerPolicy="no-referrer"
                   />
                   
                   {/* Japanese Stamp in image corner */}

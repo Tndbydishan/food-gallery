@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FoodItem } from '../data/foods';
 import { Badge } from './ui/Badge';
-import { ArrowUpRight, Flame } from 'lucide-react';
+import { ArrowUpRight, Flame, Utensils } from 'lucide-react';
 import { scrollToTop } from '../utils/lenis';
 
 interface FoodCardProps {
@@ -10,6 +10,28 @@ interface FoodCardProps {
 }
 
 export function FoodCard({ food }: FoodCardProps) {
+  const [imgSrc, setImgSrc] = useState(food.image);
+  const [errorStep, setErrorStep] = useState(0);
+
+  useEffect(() => {
+    setImgSrc(food.image);
+    setErrorStep(0);
+  }, [food.image]);
+
+  const handleImgError = () => {
+    if (errorStep === 0) {
+      // Step 1 fallback: clean static public path /images/<id>.jpg
+      setErrorStep(1);
+      setImgSrc(`/images/${food.id}.jpg`);
+    } else if (errorStep === 1) {
+      // Step 2 fallback: static path in /assets/images/<id>.jpg
+      setErrorStep(2);
+      setImgSrc(`/assets/images/${food.id}.jpg`);
+    } else {
+      setErrorStep(3);
+    }
+  };
+
   const handleClick = () => {
     scrollToTop(true);
   };
@@ -34,12 +56,12 @@ export function FoodCard({ food }: FoodCardProps) {
       {/* Top Graphic Header: Food Image with Saturated Frame */}
       <div className="relative aspect-[4/3] mb-4 overflow-hidden rounded-2xl border-3 border-black bg-primary">
         <img 
-          src={food.image} 
+          src={imgSrc} 
           alt={food.name} 
+          onError={handleImgError}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
           decoding="async"
-          referrerPolicy="no-referrer"
         />
         
         {/* Category Sticker with Kanji & English */}

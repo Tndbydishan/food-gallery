@@ -138,10 +138,19 @@ export function StallMap() {
                       <img 
                         src={stall.food.image} 
                         alt={stall.food.name} 
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          const fallback1 = `/images/${stall.food?.id}.jpg`;
+                          const fallback2 = `/assets/images/${stall.food?.id}.jpg`;
+                          if (target.src !== fallback1 && !target.src.endsWith(fallback1)) {
+                            target.src = fallback1;
+                          } else if (target.src !== fallback2 && !target.src.endsWith(fallback2)) {
+                            target.src = fallback2;
+                          }
+                        }}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
                         loading="lazy"
                         decoding="async"
-                        referrerPolicy="no-referrer"
                       />
                     ) : (
                       <Utensils className="text-black" size={22} />

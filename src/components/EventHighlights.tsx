@@ -56,10 +56,16 @@ export function EventHighlights() {
               <img 
                 src={scienceImage} 
                 alt="Culinary recipe ingredients and kitchen items preparation"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallback = '/images/bento_culinary_science_1791045693832.jpg';
+                  if (target.src !== fallback && !target.src.endsWith(fallback)) {
+                    target.src = fallback;
+                  }
+                }}
                 className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
                 loading="lazy"
                 decoding="async"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-3 left-3 bg-yellow text-black px-3 py-1 rounded-lg text-xs font-mono font-black border-2 border-black shadow-[2px_2px_0px_#111111]">
                 🧪 Nutrition Analysis · Section Tulip
@@ -153,10 +159,16 @@ export function EventHighlights() {
               <img 
                 src={presentationImage} 
                 alt="Festive food table presentation with desserts and salads"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallback = '/images/bento_team_presentation_1791045705858.jpg';
+                  if (target.src !== fallback && !target.src.endsWith(fallback)) {
+                    target.src = fallback;
+                  }
+                }}
                 className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
                 loading="lazy"
                 decoding="async"
-                referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-3 left-3 bg-white text-black px-3 py-1 rounded-md text-xs font-mono font-black shadow-[3px_3px_0px_#111111] border-2 border-black">
                 🍽️ Plating Harmony · Color & Texture Balance

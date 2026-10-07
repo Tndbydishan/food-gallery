@@ -1,3 +1,14 @@
+import friedRiceImg from '../assets/images/fried_rice_accurate_1791371460329.jpg';
+import friedChickenImg from '../assets/images/crispy_fried_chicken_1791371475110.jpg';
+import chineseVegImg from '../assets/images/chinese_vegetable_white_1791371488346.jpg';
+import chickenKababImg from '../assets/images/chicken_kabab_accurate_1791371497870.jpg';
+import custardImg from '../assets/images/creamy_fruit_custard_1791371508443.jpg';
+import puddingImg from '../assets/images/caramel_custard_pudding_1791371519256.jpg';
+import saladImg from '../assets/images/fresh_veg_fruit_salad_1791371529398.jpg';
+import juiceImg from '../assets/images/fresh_chilled_juice_1791371540270.jpg';
+import pithaImg from '../assets/images/traditional_sweet_pitha_1791371552623.jpg';
+import pastaImg from '../assets/images/chicken_vegetable_pasta_1791371563994.jpg';
+
 export type MeasurementSystem = 'metric' | 'imperial';
 
 export interface FoodVariant {
@@ -62,7 +73,7 @@ export const foods: FoodItem[] = [
     slug: "fried-rice",
     name: "Egg & Vegetable Fried Rice",
     category: "main",
-    image: "/src/assets/images/fried_rice_accurate_1791371460329.jpg",
+    image: friedRiceImg,
     description: "Fluffy fragrant stir-fried rice tossed with golden scrambled farm eggs, finely diced sweet carrots, tender green peas, and scallions in light savory seasoning.",
     dietary: ["High Energy", "Halal"],
     ingredients: [
@@ -109,7 +120,7 @@ export const foods: FoodItem[] = [
     slug: "fried-chicken",
     name: "Crispy Fried Chicken",
     category: "main",
-    image: "/src/assets/images/crispy_fried_chicken_1791371475110.jpg",
+    image: friedChickenImg,
     description: "Golden crispy fried chicken seasoned with garlic, ginger, and cracked black pepper, coated in a crunchy spiced batter and fried to juicy tenderness.",
     dietary: ["High Protein", "Halal"],
     ingredients: [
@@ -156,7 +167,7 @@ export const foods: FoodItem[] = [
     slug: "chinese-vegetable",
     name: "Chinese Mixed Vegetables (White Gravy)",
     category: "main",
-    image: "/src/assets/images/chinese_vegetable_white_1791371488346.jpg",
+    image: chineseVegImg,
     description: "Classic restaurant-style mixed vegetables bathed in a savory, translucent glossy white cornstarch gravy with crisp papaya, carrots, cabbage, and aromatic garlic.",
     dietary: ["Low Calorie", "High Fiber", "Halal"],
     ingredients: [
@@ -205,7 +216,7 @@ export const foods: FoodItem[] = [
     slug: "chicken-kabab",
     name: "Grilled Chicken Kabab",
     category: "main",
-    image: "/src/assets/images/chicken_kabab_accurate_1791371497870.jpg",
+    image: chickenKababImg,
     description: "Succulent, herb-infused chicken kababs marinated with crushed garlic, ginger, roasted cumin, fresh coriander, and lemon juice, seared with golden char marks.",
     dietary: ["High Protein", "Halal"],
     ingredients: [
@@ -253,7 +264,7 @@ export const foods: FoodItem[] = [
     slug: "custard",
     name: "Fruit Custard",
     category: "dessert",
-    image: "/src/assets/images/creamy_fruit_custard_1791371508443.jpg",
+    image: custardImg,
     description: "Silky, chilled vanilla custard layered with sweet diced seasonal apples, bananas, juicy grapes, and ruby pomegranate pearls.",
     dietary: ["Vegetarian", "Calcium Rich", "Halal"],
     ingredients: [
@@ -299,7 +310,7 @@ export const foods: FoodItem[] = [
     slug: "pudding",
     name: "Caramel Pudding",
     category: "dessert",
-    image: "/src/assets/images/caramel_custard_pudding_1791371519256.jpg",
+    image: puddingImg,
     description: "Velvety smooth steamed whole-milk and egg custard topped with a glistening, bittersweet amber caramel sauce.",
     dietary: ["Vegetarian", "High Protein", "Halal"],
     ingredients: [
@@ -344,7 +355,7 @@ export const foods: FoodItem[] = [
     slug: "salad",
     name: "Fresh Salad (Vegetable & Fruit)",
     category: "side",
-    image: "/src/assets/images/fresh_veg_fruit_salad_1791371529398.jpg",
+    image: saladImg,
     description: "Crisp, revitalizing medley of fresh sliced cucumbers, ripe tomatoes, carrots, crisp green apples, and sweet grapes tossed in fresh lemon and rock salt.",
     dietary: ["Low Calorie", "Vegan", "High Vitamin C", "Halal"],
     ingredients: [
@@ -391,7 +402,7 @@ export const foods: FoodItem[] = [
     slug: "juice",
     name: "Fresh Fruit Juice",
     category: "side",
-    image: "/src/assets/images/fresh_chilled_juice_1791371540270.jpg",
+    image: juiceImg,
     description: "Chilled and rejuvenating tropical fruit juice prepared with ripe mango nectar and sweet citrus, served over ice with fresh mint.",
     dietary: ["Refreshing", "Vegan", "Vitamin C", "Halal"],
     ingredients: [
@@ -437,7 +448,7 @@ export const foods: FoodItem[] = [
     slug: "pitha",
     name: "Traditional Sweet Pitha",
     category: "side",
-    image: "/src/assets/images/traditional_sweet_pitha_1791371552623.jpg",
+    image: pithaImg,
     description: "Delicate homemade rolled rice-flour crepes wrapped around a rich, aromatic filling of reduced condensed milk kheer and crushed green cardamom.",
     dietary: ["Vegetarian", "Traditional Heritage", "Halal"],
     ingredients: [
@@ -483,7 +494,7 @@ export const foods: FoodItem[] = [
     slug: "pasta",
     name: "Savory Chicken Pasta",
     category: "side",
-    image: "/src/assets/images/chicken_vegetable_pasta_1791371563994.jpg",
+    image: pastaImg,
     description: "Tender sautéed chicken breast strips and durum pasta tossed with crisp bell peppers, onions, and sweet corn in an herb-infused savory sauce.",
     dietary: ["High Energy", "Halal"],
     ingredients: [

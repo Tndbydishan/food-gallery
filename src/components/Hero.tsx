@@ -101,10 +101,16 @@ export function Hero() {
                   <img 
                     src={heroImage} 
                     alt="Student prepared Home Science food festival exhibition showcase" 
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      const fallback = '/images/hero_culinary_showcase_1791045681873.jpg';
+                      if (target.src !== fallback && !target.src.endsWith(fallback)) {
+                        target.src = fallback;
+                      }
+                    }}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     loading="eager"
                     decoding="async"
-                    referrerPolicy="no-referrer"
                   />
 
                   {/* Japanese Vertical Label Stripe Overlay */}

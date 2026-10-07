@@ -13,6 +13,29 @@ export function FoodDetail() {
   const [system, setSystem] = useState<MeasurementSystem>('metric');
   
   const food = foods.find(f => f.id === slug);
+  const [imgSrc, setImgSrc] = useState(food?.image || '');
+  const [errorStep, setErrorStep] = useState(0);
+
+  // Sync image source if dish changes
+  useEffect(() => {
+    if (food) {
+      setImgSrc(food.image);
+      setErrorStep(0);
+    }
+  }, [food]);
+
+  const handleImgError = () => {
+    if (!food) return;
+    if (errorStep === 0) {
+      setErrorStep(1);
+      setImgSrc(`/images/${food.id}.jpg`);
+    } else if (errorStep === 1) {
+      setErrorStep(2);
+      setImgSrc(`/assets/images/${food.id}.jpg`);
+    } else {
+      setErrorStep(3);
+    }
+  };
 
   // Ensure scroll is instantly at top whenever dish changes
   useEffect(() => {
@@ -87,12 +110,12 @@ export function FoodDetail() {
           <div className="w-full md:w-5/12 shrink-0">
             <div className="relative aspect-[4/3] sm:aspect-square rounded-2xl overflow-hidden border-3.5 border-black bg-primary shadow-[6px_6px_0px_#111111]">
               <img 
-                src={food.image} 
+                src={imgSrc} 
                 alt={food.name} 
+                onError={handleImgError}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 loading="eager"
                 decoding="async"
-                referrerPolicy="no-referrer"
               />
               
               {/* Category Sticker */}

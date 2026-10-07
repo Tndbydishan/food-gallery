@@ -97,7 +97,18 @@ export function FoodModal({ food, onClose, system, onSystemToggle }: FoodModalPr
 
         {/* Image Section */}
         <div className="md:w-[45%] h-[30dvh] min-h-[200px] md:h-auto relative bg-brand-soft-baby-blue shrink-0">
-          <img src={food.image} alt={food.name} className="w-full h-full object-cover" />
+          <img 
+            src={food.image} 
+            alt={food.name} 
+            onError={(e) => {
+              const target = e.currentTarget;
+              const fallback = `/images/${food.id}.jpg`;
+              if (target.src !== fallback && !target.src.endsWith(fallback)) {
+                target.src = fallback;
+              }
+            }}
+            className="w-full h-full object-cover" 
+          />
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/50 to-transparent"></div>
           <div className="absolute bottom-4 left-4 right-4 text-white">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-headline font-black leading-tight tracking-[0.035em] mb-2">{food.variants ? activeData.name : food.name}</h2>
