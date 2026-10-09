@@ -6,8 +6,9 @@ import custardImg from '../assets/images/creamy_fruit_custard_1791371508443.jpg'
 import puddingImg from '../assets/images/caramel_custard_pudding_1791371519256.jpg';
 import saladImg from '../assets/images/fresh_veg_fruit_salad_1791371529398.jpg';
 import juiceImg from '../assets/images/fresh_chilled_juice_1791371540270.jpg';
-import pithaImg from '../assets/images/traditional_sweet_pitha_1791371552623.jpg';
 import pastaImg from '../assets/images/chicken_vegetable_pasta_1791371563994.jpg';
+import springRollImg from '../assets/images/vegetable_spring_rolls_1791524299078.jpg';
+import momosImg from '../assets/images/steamed_chicken_momos_1791524314071.jpg';
 
 export type MeasurementSystem = 'metric' | 'imperial';
 
@@ -444,52 +445,6 @@ export const foods: FoodItem[] = [
     homeScienceInsight: "Cold blending retains heat-sensitive L-ascorbic acid (Vitamin C) and beta-carotene antioxidants, providing bioavailable natural carbohydrates and vital electrolyte ions."
   },
   {
-    id: "pitha",
-    slug: "pitha",
-    name: "Traditional Sweet Pitha",
-    category: "side",
-    image: pithaImg,
-    description: "Delicate homemade rolled rice-flour crepes wrapped around a rich, aromatic filling of reduced condensed milk kheer and crushed green cardamom.",
-    dietary: ["Vegetarian", "Traditional Heritage", "Halal"],
-    ingredients: [
-      "Finely Milled Rice Flour",
-      "All-Purpose Wheat Flour",
-      "Fresh Cow's Milk",
-      "Slow-Reduced Milk Kheer Filling",
-      "Refined Cane Sugar",
-      "Aromatic Cardamom Pods",
-      "Pure Ghee (Pan greasing)"
-    ],
-    allergens: {
-      contains: ["Milk", "Wheat", "Gluten"],
-      mayContain: []
-    },
-    nutrition: {
-      basis: "100g",
-      energyKcal: 232,
-      protein: 5.1,
-      carbohydrates: 42.8,
-      fat: 5.0,
-      saturatedFat: 2.8,
-      fiber: 1.0,
-      sugars: 20.4,
-      sodiumMg: 42
-    },
-    serving: {
-      size: "2 rolls (120g)",
-      yield: "6 portions"
-    },
-    preparation: {
-      time: "40 min",
-      difficulty: "Medium"
-    },
-    measurementBasis: {
-      metric: { weight: 100 },
-      imperial: { weight: 3.5 }
-    },
-    homeScienceInsight: "Combining amylose-rich rice flour with gluten-forming wheat flour gives the crepe batter flexibility without fragility, preventing tearing when rolled around hot reduced milk."
-  },
-  {
     id: "pasta",
     slug: "pasta",
     name: "Savory Chicken Pasta",
@@ -536,5 +491,99 @@ export const foods: FoodItem[] = [
       imperial: { weight: 3.5 }
     },
     homeScienceInsight: "Cooking durum semolina pasta al dente encapsulates starch inside gluten protein webs, yielding a lower glycemic impact while emulsifying with vegetable cooking oil to evenly coat the chicken."
+  },
+  {
+    id: "spring-rolls",
+    slug: "spring-rolls",
+    name: "Crispy Vegetable Spring Rolls",
+    category: "side",
+    image: springRollImg,
+    description: "Golden, crackling pastry cylinders packed with julienned cabbage, carrots, bell peppers, and scallions wok-tossed with ginger, garlic, and light soy seasoning.",
+    dietary: ["Vegetarian", "Crispy Appetizer", "Halal"],
+    ingredients: [
+      "Hand-Rolled Spring Roll Wrappers (Wheat Pastry)",
+      "Finely Shredded Green Cabbage",
+      "Julienned Sweet Carrots",
+      "Green Capsicum & Spring Onions",
+      "Minced Garlic & Fresh Ginger",
+      "Light Soy Sauce & Toasted Sesame Oil",
+      "Cracked White Pepper & Sea Salt",
+      "Pure Vegetable Frying Oil"
+    ],
+    allergens: {
+      contains: ["Wheat", "Gluten", "Soy", "Sesame"],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 195,
+      protein: 3.8,
+      carbohydrates: 26.2,
+      fat: 8.5,
+      saturatedFat: 1.2,
+      fiber: 2.4,
+      sugars: 2.1,
+      sodiumMg: 280
+    },
+    serving: {
+      size: "2 rolls (120g)",
+      yield: "6 portions"
+    },
+    preparation: {
+      time: "30 min",
+      difficulty: "Medium"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Flash-frying thin laminated wheat pastry at 180°C rapidly converts residual surface moisture to steam, causing micro-blistering that produces an ultra-crisp barrier while gently steaming internal vegetables to retain crisp cell turgor and vitamin C."
+  },
+  {
+    id: "momos",
+    slug: "momos",
+    name: "Steamed Chicken Momos",
+    category: "side",
+    image: momosImg,
+    description: "Delicate, hand-pleated dumplings stuffed with juicy minced chicken, ginger, coriander, and scallions, gently steam-cooked in bamboo baskets and served with zesty tomato-chili chutney.",
+    dietary: ["High Protein", "Steam Cooked", "Halal"],
+    ingredients: [
+      "Finely Milled All-Purpose Wheat Dough",
+      "Tender Fresh Minced Chicken Breast",
+      "Finely Chopped Red Onions",
+      "Fresh Ginger Paste & Crushed Garlic",
+      "Chopped Scallions & Fresh Coriander",
+      "Roasted Cumin & Black Pepper",
+      "Light Soy Sauce",
+      "Spicy Tomato-Chili Chutney Dip"
+    ],
+    allergens: {
+      contains: ["Wheat", "Gluten", "Soy"],
+      mayContain: []
+    },
+    nutrition: {
+      basis: "100g",
+      energyKcal: 162,
+      protein: 13.5,
+      carbohydrates: 18.2,
+      fat: 3.8,
+      saturatedFat: 0.9,
+      fiber: 1.1,
+      sugars: 1.0,
+      sodiumMg: 290
+    },
+    serving: {
+      size: "4 dumplings (140g)",
+      yield: "4 portions"
+    },
+    preparation: {
+      time: "35 min",
+      difficulty: "Medium"
+    },
+    measurementBasis: {
+      metric: { weight: 100 },
+      imperial: { weight: 3.5 }
+    },
+    homeScienceInsight: "Enclosed steam-cooking above 100°C rapidly gelatinizes wheat starch on the outer dumpling wrapper without excessive water absorption, while internal chicken collagen denatures into savory gelatin, locking in rich moisture without added frying oils."
   }
 ];

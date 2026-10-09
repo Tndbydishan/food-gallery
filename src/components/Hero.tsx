@@ -136,7 +136,7 @@ export function Hero() {
                     </span>
                   </div>
                   <div className="bg-yellow text-black font-display font-black px-2.5 py-1 rounded-lg text-xs uppercase border-2 border-black shadow-[2px_2px_0px_#111111]">
-                    Stalls 01–10
+                    Stalls 01–11
                   </div>
                 </div>
               </div>

@@ -19,14 +19,15 @@ export function StallMap() {
     { id: "chicken-kabab", food: getFood("chicken-kabab"), x: 33, y: 46, color: "bg-primary text-black", stallNum: "04", kanji: "肉串" },
     
     // Zone B: Side Dishes
-    { id: "salad", food: getFood("salad"), x: 50, y: 24, color: "bg-green text-white", stallNum: "05", kanji: "生菜" },
-    { id: "juice", food: getFood("juice"), x: 50, y: 48, color: "bg-blue text-white", stallNum: "06", kanji: "果汁" },
-    { id: "pasta", food: getFood("pasta"), x: 65, y: 24, color: "bg-yellow text-black", stallNum: "07", kanji: "麺類" },
-    { id: "pitha", food: getFood("pitha"), x: 65, y: 48, color: "bg-green text-white", stallNum: "08", kanji: "伝統" },
+    { id: "salad", food: getFood("salad"), x: 49, y: 22, color: "bg-green text-white", stallNum: "05", kanji: "生菜" },
+    { id: "juice", food: getFood("juice"), x: 49, y: 46, color: "bg-blue text-white", stallNum: "06", kanji: "果汁" },
+    { id: "pasta", food: getFood("pasta"), x: 49, y: 70, color: "bg-yellow text-black", stallNum: "07", kanji: "麺類" },
+    { id: "spring-rolls", food: getFood("spring-rolls"), x: 65, y: 32, color: "bg-yellow text-black", stallNum: "08", kanji: "春巻" },
+    { id: "momos", food: getFood("momos"), x: 65, y: 60, color: "bg-primary text-black", stallNum: "09", kanji: "点心" },
     
     // Zone C: Desserts
-    { id: "pudding", food: getFood("pudding"), x: 82, y: 32, color: "bg-red text-white", stallNum: "09", kanji: "布丁" },
-    { id: "custard", food: getFood("custard"), x: 82, y: 64, color: "bg-red text-white", stallNum: "10", kanji: "菓子" },
+    { id: "pudding", food: getFood("pudding"), x: 82, y: 32, color: "bg-red text-white", stallNum: "10", kanji: "布丁" },
+    { id: "custard", food: getFood("custard"), x: 82, y: 64, color: "bg-red text-white", stallNum: "11", kanji: "菓子" },
   ].filter(s => s.food);
 
   const handleStallClick = (foodId?: string) => {
@@ -91,14 +92,14 @@ export function StallMap() {
             {/* Zone B: Side Dishes (Green) */}
             <div className="absolute top-8 bottom-16 left-[40%] right-[32%] rounded-2xl border-3 border-dashed border-black bg-green/20 flex flex-col items-center pt-2">
               <span className="text-[10px] font-mono font-black uppercase text-white bg-green px-2 py-0.5 rounded border-2 border-black shadow-[2px_2px_0px_#111111]">
-                B区 · 副菜 Sides (05-08)
+                B区 · 副菜 Sides (05-09)
               </span>
             </div>
             
             {/* Zone C: Desserts (Red) */}
             <div className="absolute top-8 bottom-16 right-6 w-32 md:w-44 rounded-2xl border-3 border-dashed border-black bg-red/20 flex flex-col items-center pt-2">
               <span className="text-[10px] font-mono font-black uppercase text-white bg-red px-2 py-0.5 rounded border-2 border-black shadow-[2px_2px_0px_#111111]">
-                C区 · 甘味 Desserts (09-10)
+                C区 · 甘味 Desserts (10-11)
               </span>
             </div>
 
