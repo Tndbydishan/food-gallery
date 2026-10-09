@@ -1,22 +1,33 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { scrollToTop, scrollToElement } from '../utils/lenis';
 
 export function ScrollToTop() {
   const { pathname, hash } = useLocation();
+  const isFirstMountRef = useRef(true);
 
   useEffect(() => {
+    // On initial mount / reload: do not overwrite browser restored scroll position unless a specific hash anchor is in the URL
+    if (isFirstMountRef.current) {
+      isFirstMountRef.current = false;
+      if (hash) {
+        const timer = setTimeout(() => {
+          scrollToElement(hash, -75);
+        }, 120);
+        return () => clearTimeout(timer);
+      }
+      return;
+    }
+
+    // On subsequent user route transitions (e.g. clicking between pages):
     if (hash) {
-      // Delay slightly for React components to finish mounting
       const timer = setTimeout(() => {
         scrollToElement(hash, -75);
       }, 60);
       return () => clearTimeout(timer);
     } else {
-      // Immediate reset on route transition
       scrollToTop(true);
 
-      // Re-apply on next animation frame and after small delay to handle any dynamic layout shifts
       const raf = requestAnimationFrame(() => {
         scrollToTop(true);
       });

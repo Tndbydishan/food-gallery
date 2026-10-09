@@ -82,7 +82,16 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
       easing: 'easeOutQuad',
       complete: () => {
         setIsDone(true);
+        // Unlock scroll on document and body
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+
+        // Always start smoothly from the top Hero section
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        if (document.documentElement) document.documentElement.scrollTop = 0;
+        if (document.body) document.body.scrollTop = 0;
+
         onLoadingComplete();
       },
     });
@@ -92,11 +101,31 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       setIsDone(true);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       onLoadingComplete();
       return;
     }
 
+    // Always guarantee Hero section position at start of fresh loading
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (document.documentElement) document.documentElement.scrollTop = 0;
+    if (document.body) document.body.scrollTop = 0;
+
+    // Strict scroll and touch lock
+    const preventScroll = (e: Event) => {
+      e.preventDefault();
+    };
+
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevTouchAction = document.body.style.touchAction;
+
+    document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
+
+    window.addEventListener('wheel', preventScroll, { passive: false });
+    window.addEventListener('touchmove', preventScroll, { passive: false });
 
     // Keyboard shortcut to skip intro immediately
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -195,8 +224,12 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
     return () => {
       clearInterval(stepInterval);
       window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('wheel', preventScroll);
+      window.removeEventListener('touchmove', preventScroll);
       bounceAnime.pause();
-      document.body.style.overflow = '';
+      document.documentElement.style.overflow = prevHtmlOverflow || '';
+      document.body.style.overflow = prevBodyOverflow || '';
+      document.body.style.touchAction = prevTouchAction || '';
     };
   }, [onLoadingComplete]);
 
@@ -205,7 +238,11 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const currentStep = STORY_STEPS[currentStepIndex];
 
   return (
-    <div className="loading-screen-root fixed inset-0 z-[9999] w-screen h-[100dvh] min-h-[100dvh] bg-blue flex flex-col justify-between items-center p-3 sm:p-5 md:p-6 text-center select-none relative overflow-y-auto overflow-x-hidden">
+    <div 
+      className="loading-screen-root fixed inset-0 z-[9999] w-screen h-[100dvh] bg-blue flex flex-col justify-between items-center p-3 sm:p-5 md:p-6 text-center select-none overflow-hidden touch-none overscroll-none pointer-events-auto"
+      onWheel={(e) => e.preventDefault()}
+      onTouchMove={(e) => e.preventDefault()}
+    >
       
       {/* Cartoon Comic Sunburst Rays in Background (Pure Blue & White - Covers 100% of Screen) */}
       <div 

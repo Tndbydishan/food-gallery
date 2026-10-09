@@ -37,9 +37,9 @@ export function Home() {
         items={[
           "CLASSROOM", 
           "FLOOR PLAN · 配置図", 
-          "10 EXHIBITED STALLS", 
+          `${foods.length} EXHIBITED STALLS`, 
           "SOUTHPOINT SCHOOL & COLLEGE", 
-          "NO. 01 TO NO. 10"
+          `NO. 01 TO NO. ${foods.length < 10 ? '0' + foods.length : foods.length}`
         ]} 
         variant="red" 
         speed="normal" 
