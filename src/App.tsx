@@ -28,6 +28,12 @@ function checkShouldSkipIntro(): boolean {
     if (sessionStorage.getItem('tulip_intro_completed') === 'true') {
       return true;
     }
+
+    // 4. Direct deep links (e.g. scanning QR code directly to /food/:slug):
+    // Open the dish details immediately without forcing the festival intro animation
+    if (window.location.pathname && window.location.pathname !== '/' && window.location.pathname !== '') {
+      return true;
+    }
   } catch {
     // Fallback if sessionStorage is inaccessible
   }
@@ -97,6 +103,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/food/:slug" element={<FoodDetail />} />
+          <Route path="*" element={<Home />} />
         </Routes>
 
         <Footer />

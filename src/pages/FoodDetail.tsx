@@ -12,7 +12,12 @@ export function FoodDetail() {
   const navigate = useNavigate();
   const [system, setSystem] = useState<MeasurementSystem>('metric');
   
-  const food = foods.find(f => f.id === slug);
+  const normalizedSlug = slug ? decodeURIComponent(slug).toLowerCase().trim().replace(/\/$/, '') : '';
+  const food = foods.find(f => 
+    f.id.toLowerCase() === normalizedSlug || 
+    f.slug.toLowerCase() === normalizedSlug ||
+    f.id.replace(/-/g, '') === normalizedSlug.replace(/-/g, '')
+  );
   const [imgSrc, setImgSrc] = useState(food?.image || '');
   const [errorStep, setErrorStep] = useState(0);
 
